@@ -1,0 +1,1369 @@
+\documentclass[
+	% -- opções da classe memoir --
+	12pt,				% tamanho da fonte
+	openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
+	oneside,			% para impressão em verso e anverso. Oposto a oneside
+	a4paper,			% tamanho do papel. 
+	% -- opções da classe abntex2 --
+	%chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
+	%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
+	%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
+	%subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
+	% -- opções do pacote babel --
+	english,			% idioma adicional para hifenização
+	french,				% idioma adicional para hifenização
+	spanish,			% idioma adicional para hifenização
+	brazil,				% o último idioma é o principal do documento
+	]{abntex2}
+
+
+% ---
+% PACOTES
+% ---
+% ---
+% Pacotes fundamentais 
+% ---
+\usepackage{cmap}				% Mapear caracteres especiais no PDF
+%\usepackage{lmodern}			% Usa a fonte Latin Modern		
+\usepackage{helvet}
+\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
+\usepackage{lastpage}			% Usado pela Ficha catalográfica
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}				% Controle das cores
+\usepackage{graphicx}			% Inclusão de gráficos
+\usepackage{underscore}
+\usepackage{amsfonts}
+\usepackage{tabularx}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{hyperxmp}
+\newlist{tabitemize}{itemize}{1}
+\setlist[tabitemize]{label=\textbullet,leftmargin=*,topsep=0ex,parsep=0pt,
+                  after=\vspace{-\baselineskip},before=\vspace{-0.75\baselineskip}} 
+
+% ---
+\linespread{1.5} % espaçamento entre linhas		
+% ---
+% Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
+% ---
+\usepackage{lipsum}				% para geração de dummy text
+\usepackage{amsmath}
+% ---
+
+% ---
+% Pacotes de citações
+% ---
+\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
+\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+
+% --- 
+% CONFIGURAÇÕES DE PACOTES
+% --- 
+
+% ---
+% Configurações do pacote backref
+% Usado sem a opção hyperpageref de backref
+%\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+\renewcommand{\backrefpagesname}{}
+% Texto padrão antes do número das páginas
+\renewcommand{\backref}{}
+% Define os textos da citação
+\renewcommand*{\backrefalt}[4]{
+	\ifcase #1 %
+		Nenhuma citação no texto.%
+	\or
+		%Citado na página #2.%
+	\else
+		%Citado #1 vezes nas páginas #2.%
+	\fi}%
+% ---
+\author{Jesus Felipe Candian Silva}
+\title{UM FRAMEWORK DE CONFORMIDADE PARA A LEI GERAL DE PROTEÇÃO DE DADOS}
+
+\hypersetup{
+    pdfauthor={Jesus Felipe Candian Silva},
+    pdftitle={Um framework de conformidade para a lei geral de proteção de dados},
+    pdfsubject={Conformidade com a LGPD, implementação da LGPD, lei geral de proteção de dados, direito digital, Brasil},
+    pdfkeywords={conformidade, LGPD, direito digital, proteção de dados, Lei geral de proteção de dados}
+    baseurl={https://www.dadoslgpd.com},
+    pdfcontactemail={felipe.candian@hotmail.com}
+}
+% ---
+% Informações de dados para CAPA e FOLHA DE ROSTO
+% 
+\titulo{UM \textit{FRAMEWORK} DE CONFORMIDADE PARA A LEI GERAL DE PROTEÇÃO DE DADOS}
+
+\autor{JESUS FELIPE CANDIAN SILVA}
+\local{Rio Pomba}
+\data{2022}
+\orientador{DSc. Wellington Moreira de Oliveira }
+%\coorientador{CICLANO}
+%\instituicao{}
+\tipotrabalho{Trabalho de Conclusão de Curso}
+% O preambulo deve conter o tipo do trabalho, o objetivo, 
+% o nome da instituição e a área de concentração 
+\preambulo{Trabalho de Conclusão apresentado ao Campus Rio Pomba, do Instituto Federal de Educação, Ciência e Tecnologia do Sudeste de Minas Gerais, como parte das exigências do curso de Bacharelado em Ciência da Computação para a obtenção do título de Bacharel em Ciência da Computação.}
+% ---
+
+
+% ---
+% Configurações de aparência do PDF final
+
+% alterando o aspecto da cor azul
+\definecolor{blue}{RGB}{41,5,195}
+
+% informações do PDF
+%\makeatletter
+%\hypersetup{
+     	%pagebackref=true,
+%		pdftitle={\@title}, 
+%		pdfauthor={\@author},
+%    	pdfsubject={\imprimirpreambulo},
+%	    pdfcreator={Matheus F O Baffa},
+%		pdfkeywords={content-based image retrieval}{desenvolvimento web}{exame de fundo de olho}{histograma backprojection}{íris}, 
+%		colorlinks=true,       		% false: boxed links; true: colored links
+%    	linkcolor=black,          	% color of internal links
+%    	citecolor=black,        		% color of links to bibliography
+%    	filecolor=black,      		% color of file links
+%		urlcolor=black,
+%		bookmarksdepth=4
+%}
+\makeatother
+% --- 
+
+% --- 
+% Espaçamentos entre linhas e parágrafos 
+% --- 
+
+% O tamanho do parágrafo é dado por:
+\setlength{\parindent}{1.3cm}
+
+% Controle do espaçamento entre um parágrafo e outro:
+\setlength{\parskip}{0.2cm}  % tente também \onelineskip
+
+% ---
+% compila o indice
+% ---
+\makeindex
+% ---
+
+% ----
+% Início do documento
+% ----
+\begin{document}
+
+% Retira espaço extra obsoleto entre as frases.
+\frenchspacing 
+
+% ----------------------------------------------------------
+% ELEMENTOS PRÉ-TEXTUAIS
+% ----------------------------------------------------------
+% \pretextual
+
+% ---
+% Capa
+% ---
+\begin{center}
+\textbf{ 
+INSTITUTO FEDERAL DE EDUCAÇÃO, CIÊNCIA E TECNOLOGIA DO SUDESTE DE MINAS GERAIS - CAMPUS RIO POMBA}
+\end{center}
+
+\imprimircapa
+% ---
+
+% ---
+% Folha de rosto
+% (o * indica que haverá a ficha bibliográfica)
+% ---
+\imprimirfolhaderosto*
+% ---
+
+% ---
+% Inserir a ficha bibliografica
+% ---
+
+% Isto é um exemplo de Ficha Catalográfica, ou ``Dados internacionais de
+% catalogação-na-publicação''. Você pode utilizar este modelo como referência. 
+% Porém, provavelmente a biblioteca da sua universidade lhe fornecerá um PDF
+% com a ficha catalográfica definitiva após a defesa do trabalho. Quando estiver
+% com o documento, salve-o como PDF no diretório do seu projeto e substitua todo
+% o conteúdo de implementação deste arquivo pelo comando abaixo:
+%
+% \begin{fichacatalografica}
+%     \includepdf{fig_ficha_catalografica.pdf}
+% \end{fichacatalografica}
+\begin{fichacatalografica}
+	\vspace*{\fill}					% Posição vertical
+	\hrule							% Linha horizontal
+	\begin{center}					% Minipage Centralizado
+	\begin{minipage}[c]{12.5cm}		% Largura
+	
+	\imprimirautor
+	
+	\hspace{0.5cm} \imprimirtitulo  / \imprimirautor. --
+	\imprimirlocal, \imprimirdata-
+	
+	\hspace{0.5cm} \pageref{LastPage} p. : il. (algumas color.) ; 30 cm.\\
+	
+	\hspace{0.5cm} \imprimirorientadorRotulo~\imprimirorientador\\
+	
+	\hspace{0.5cm}
+	\parbox[t]{\textwidth}{\imprimirtipotrabalho~--~Instituto Federal de Educação, Ciência e Tecnologia do Sudeste de Minas, Campus Rio Pomba,
+	\imprimirdata.}\\
+	
+	\hspace{0.5cm}
+		1. 
+		2. 
+		I. 
+		II.
+		III.
+		IV. \\ 			
+	
+	\hspace{8.75cm} %CDU 02:141:005.7\\
+	
+	\end{minipage}
+	\end{center}
+	\hrule
+\end{fichacatalografica}
+% ---
+
+% ---
+% Inserir errata
+% ---
+%\begin{errata}
+%Elemento opcional da \citeonline[4.2.1.2]{NBR14724:2011}. %Exemplo:
+
+%\vspace{\onelineskip}
+%
+%FERRIGNO, C. R. A. \textbf{Tratamento de neoplasias ósseas apendiculares com
+%reimplantação de enxerto ósseo autólogo autoclavado associado ao plasma
+%rico em plaquetas}: estudo crítico na cirurgia de preservação de membro em
+%cães. 2011. 128 f. Tese (Livre-Docência) - Faculdade de Medicina Veterinária e
+%Zootecnia, Universidade de São Paulo, São Paulo, 2011.
+
+%\begin{table}[htb]
+%\center
+%\footnotesize
+%\begin{tabular}{|p{1.4cm}|p{1cm}|p{3cm}|p{3cm}|}
+%  \hline
+%   \textbf{Folha} & \textbf{Linha}  & \textbf{Onde se lê} % & \textbf{Leia-se}  \\
+%    \hline
+%    1 & 10 & auto-conclavo & autoconclavo\\
+%   \hline
+%\end{tabular}
+%\end{table}
+%
+%\end{errata}
+% ---
+
+% ---
+% Inserir folha de aprovação
+% ---
+
+% Isto é um exemplo de Folha de aprovação, elemento obrigatório da NBR
+% 14724/2011 (seção 4.2.1.3). Você pode utilizar este modelo até a aprovação
+% do trabalho. Após isso, substitua todo o conteúdo deste arquivo por uma
+% imagem da página assinada pela banca com o comando abaixo:
+%
+% \includepdf{folhadeaprovacao_final.pdf}
+%
+\begin{folhadeaprovacao}
+
+  \begin{center}
+    {\ABNTEXchapterfont\large\imprimirautor}
+
+    \vspace*{\fill}\vspace*{\fill}
+    {\ABNTEXchapterfont\bfseries\Large\imprimirtitulo}
+    \vspace*{\fill}
+    
+    \hspace{.45\textwidth}
+    \begin{minipage}{.5\textwidth}
+        \imprimirpreambulo
+    \end{minipage}%
+    \vspace*{\fill}
+   \end{center}
+    
+   Trabalho aprovado. \imprimirlocal, 00 de outubro de 2022.
+
+   \assinatura{\textbf{\imprimirorientador}, Orientador, IF Sudeste MG - Rio Pomba} 
+   \assinatura{\textbf{CICLANO}, Coorientador, IF Sudeste MG - Rio Pomba}
+   \assinatura{\textbf{Dr. BELTRANO} \\ IF Sudeste MG - Rio Pomba}
+   \assinatura{\textbf{Me. XXXXXXXXXXXXX} \\ IF Sudeste MG - Rio Pomba }
+   %\assinatura{\textbf{Professor W} \\ IF Sudeste MG - Rio Pomba}
+      
+   \begin{center}
+    \vspace*{0.5cm}
+    {\large\imprimirlocal}
+    \par
+    {\large\imprimirdata}
+    \vspace*{1cm}
+  \end{center}
+  
+\end{folhadeaprovacao}
+% ---
+
+
+% ---
+% Dedicatória
+% ---
+\begin{dedicatoria}
+   \vspace*{\fill}
+	\begin{flushright}
+        Este trabalho é dedicado a todos\\ 
+       aqueles que me inspiraram, em especial\\ 
+       XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX \\
+       XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX.
+    \end{flushright}
+\end{dedicatoria}
+% ---
+
+% ---
+% Agradecimentos
+% ---
+\begin{agradecimentos}
+
+Lorem ipsum dolor sit amet, pri democritum dissentias necessitatibus ex, ad dolore invenire eam. Cum brute eirmod rationibus cu, nec perpetua definitionem ea. No aliquip prodesset eam, dico accusamus referrentur pri no. Ei impetus delicatissimi his, eu has similique constituto. Ceteros persequeris vix ea, mei discere nonumes id.
+
+Mea no vitae perfecto, pro vero cotidieque ea. No qui altera vivendum perpetua, mea no tation docendi incorrupte. Putent albucius in sea, vis purto omnesque ea. Te amet legere delectus eum. Atqui impedit pro in, vix ad platonem consequat disputationi. Ad vel illum legendos.
+
+Dicta oratio scriptorem id has, nam id altera democritum, et usu velit aeque facilisis. Est percipit similique et. Has ea lorem maluisset honestatis. Usu facilisi rationibus signiferumque ne, minimum phaedrum honestatis per in, quo an luptatum omittantur vituperatoribus. Et his incorrupte scripserit omittantur.
+
+Id nam doctus atomorum consequuntur, his ut erant maluisset instructior. Eos no dicit perfecto incorrupte, mea animal nonumes ne. Illum vocibus eum ex, et facer minim epicuri mei. Ea agam forensibus quo, eu vim debitis platonem.
+
+Sed ad quas alterum sensibus, te vel stet tota inimicus. Ne euismod fierent vix. Pri ei laudem alterum assueverit, vix id illum tollit necessitatibus, qui ex delenit meliore facilisi. Velit splendide similique ad vix, eum omnes maluisset an. Ei duo stet volumus, odio homero audire no usu, nulla suscipit theophrastus has te. Per an volutpat intellegat interpretaris, sit latine mnesarchum no.
+
+\end{agradecimentos}
+% ---
+
+% ---
+% Epígrafe
+% ---
+% \begin{epigrafe}
+%     \vspace*{\fill}
+% 	\begin{flushright}
+% 		\textit{}
+% 	\end{flushright}
+% \end{epigrafe}
+% ---
+
+% ---
+% RESUMOS
+% ---
+
+% resumo em português
+\begin{resumo}
+\noindent
+A Lei Geral de Proteção de Dados popularmente conhecida de forma abreviada como LGPD, é fruto da lei nº 13.709, que foi aprovada e sancionada no ano de 2018, dispondo a respeito do tratamento de dados pessoais, podendo ser de dados físicos ou virtuais, podendo o agente ser pessoa de direito público ou direito privado. O principal objetivo da referida lei é o de proteger os direitos fundamentais da liberdade e privacidade, e garantir que os preceitos presentes na lei sejam cumpridas por diversos setores da sociedade civil que atuam no armazenamento, compartilhamento e transmissão de dados. No ano de 2020, a LGPD entrou em vigor, fazendo com que empresas que não haviam entrado em conformidade começassem o processo de adequação com a referida lei. O \textit{framework} proposto foi implementado dentro de um sistema denominado com o nome Dados LGPD, que foi desenvolvido utilizando as atuais tecnologias de desenvolvimento WEB
+
+ \vspace{\onelineskip}
+    
+ \noindent
+ \textbf{Palavras-chaves:} Conformidade. \textit{Framework}. LGPD. Segurança da Informação.
+\end{resumo}
+
+% resumo em inglês
+\begin{resumo}[Abstract]
+ \begin{otherlanguage*}{english}
+   \vspace{\onelineskip}
+    \noindent 
+The General Data Protection Law, popularly known as LGPD, is the result of law 13,709, the result of law 13,709, approved and sanctioned in the year 2018, available regarding the processing of personal data, which may be physical data or virtual, and the agent can be a person of public law or private law. The main objectives of the law are the protection of the fundamental rights of freedom and privacy, and the protection of society that act in various sectors of preservation, sharing and transmission of civil data. In the year 220, the LGPD came into force, causing companies that had not entered into the process to refer to the law. The proposed framework was implemented within a system identified with the name LGPD, which was used as current technologies for WEB development.
+   
+   \vspace{\onelineskip}
+   
+   \noindent  \textbf{Key-words}:  word1. word2. word3. word4. word5.
+ \end{otherlanguage*}
+\end{resumo}
+
+% ---
+% inserir lista de ilustrações
+% ---
+\pdfbookmark[0]{\listfigurename}{lof}
+\listoffigures*
+\cleardoublepage
+% ---
+
+% ---
+% inserir lista de tabelas
+% ---
+\pdfbookmark[0]{\listtablename}{lot}
+\listoftables*
+\cleardoublepage
+% ---
+
+% ---
+% inserir lista de abreviaturas e siglas
+% ---
+\begin{siglas}
+    \item[ANPD] Agencia Nacional de Proteção de Dados
+    \item[API] Application Programming Interface
+    \item[BD] Banco de Dados
+    \item[CRUD] Create, Read, Update e Delete
+    \item[GDPR]  General Data Protection Regulation
+    \item [JS] Javascript
+    \item[LGPD] Lei Geral de Proteção de Dados
+    \item[MVC] Model, Vision, Controller
+    \item[TI] Tecnologia da Informação
+    \item[URL] Uniform Resource Locator
+\end{siglas}
+% ---
+
+% ---
+% inserir lista de símbolos
+% ---
+%\begin{simbolos}
+%  \item[$ \Lambda $] Lambda
+%\end{simbolos}
+% ---
+
+% ---
+% inserir o sumario
+% ---
+% \pdfbookmark[0]{\contentsname}{toc}
+% \addcontentsline{arquivo}{unidade}{entrada}
+\tableofcontents*
+% \cleardoublepage
+% ---
+
+
+
+% ---------------------------------------------------------------------------------------------
+% ELEMENTOS TEXTUAIS
+% ---------------------------------------------------------------------------------------------
+\textual
+\setcounter{page}{1}
+% ---------------------------------------------------------------------------------------------
+% Introdução
+% ---------------------------------------------------------------------------------------------
+\chapter*{Introdução}
+\addcontentsline{toc}{chapter}{\textbf{Introdução}}
+\markright{Introdução}
+\label{chapter:introducao}
+
+A Lei Geral de Proteção de Dados (LGPD) — lei n.º 13.709, foi aprovada e sancionada no ano de 2018, dispondo a respeito do tratamento de dados pessoais. Esses dados podem físicos ou virtuais, e este tratamento de dados visa proteger os direitos fundamentais da liberdade e privacidade, combatendo a ilegalidade do uso indevido de dados pessoais que podem causar danos materiais, morais e financeiros para pessoas físicas titulares dos dados. \cite{01-01-LeiGeral}.
+
+A LGPD surge de uma necessidade da sociedade tecnológica, que vem se moldando com a era digital. E de tal modo, mais e mais pessoas estão conectadas no mundo virtual. Devido aos avanços cibernéticos, os riscos digitais tornam-se reais, podendo ocorrer a qualquer momento,  de modo que dados de titulares podem ser vazados ou usados ilegalmente. Por tais fatores descritos, consolidaram como o catalisador para o surgimento da LGPD no Brasil, devido também o aumento de crimes virtuais, a falta de leis protegendo os dados pessoais dos brasileiros e também com o escândalo do vazamento de dados pessoais de cerca de 87 milhões de usuários da rede social Facebook  (OLHAR DIGITAL, 2018).
+
+De breve resumo, no ano de 2018, o jornal norte-americano The New York Times (ROSENBERG; CONFESSORE, 2018) e o jornal britânico The Guardian (GRAHAM-HARRISON; CADWALLADR, 2018) publicaram simultamente artigos demonstrando relatórios de vazamento de dados pelo \textit{Facebook}. Os  dados de usuários da referida rede social foram usados irregularmente pela empresa \textit{Cambrigde Analytica}, sendo que esses dados dos usuários foram utilizados sem o consentimento do titular para análise e mineração de dados com a finalidade de fazer comunicação estratégica para o processo eleitoral americano em 2016.
+
+A não adequação de conformidade faz com que as empresas sofram com grandes riscos de segurança tecnológica, visto que com a popularização e a evolução da internet no Brasil muitos crimes digitais vêm aumentando, causando prejuízos e riscos aos titulares dos dados vazados. Em (MARGALHÃES; SYDOW, 2019) é descrito o cenário do ciberterrorismo e os problemas que cercam o mundo digital e seus internautas. Os ataques maliciosos digitais vêm aumentando, seja por motivos criminosos para benefício próprio, seja por motivo social ou político. Tais ataques são realizados por hackers, crackers e outros invasores, podem causar inúmeros danos a governos, empresas, pessoas físicas, violando inúmeros direitos. O fato de vazamento de dados de usuários em decorrência de invasões de empresas privadas, quanto de entes governamentais já é algo rotineiro. Devido à fragilidade dos bancos de dados, falhas humanas, ou de ataques realizados por criminosos digitais, se tornando um dos maiores problemas para a segurança e integridade dos usuários digitais (DODSWORTH, 2021).
+
+Com a LGPD em vigor desde 2020, entretanto, observa-se por artigos vinculados em matéria jornalística do Portal Terra (2022), que até o momento, muitas empresas ainda não se adequaram à LGPD, sendo apenas 16\% das empresas. Segundo a matéria da revista Exame no ano de 2021, (DIAS, 2021), apenas 3 em cada 10 pequenas e médias empresas acreditam estar em conformidade com à lei. Muitas empresas brasileiras não estão preparadas para lidar com as novas regras e procedimentos impostos pela LGPD, devido ao grande número de regras a serem seguidas, e também a pouca demanda de profissionais especializados. Analisando o problema real da dificuldade de implementação da LGPD, foi pensado uma solução a ser desenvolvida que possa ser usado por funcionários da empresa para auxiliar na adequação da LGPD.
+
+Este trabalho tem como objetivo geral colaborar com a implementação da LGPD nas empresas, visando criar um \textit{framework} de conformidade com a LGPD. De modo, auxiliar e mapear o que deve ser feito nas etapas de adequação a LGPD, evitando sanções para as empresas, vazamentos de dados e aumentando o número de empresas em compliance com a proteção dos dados pessoais.
+
+Diante do objetivo geral já estabelecido, teremos os seguintes objetivos específicos, tais como:
+\begin{itemize}
+\item Construir um \textit{framework} utilizando tecnologias e técnicas de desenvolvimento \textit{web};
+\item Verificar o grau de conformidade das empresas utilizando o \textit{framework} gerado no referido trabalho;
+\item Implementar a ferramenta e realizar testes com empresas e \textit{stakeholders} (pessoas interessadas pela solução);
+\item Receber \textit{feedback} das avaliações da ferramenta;
+\item Contribuir para a produção de novos trabalhos que colaborem para futuros estudos relacionados a temática, atuando como marco nas áreas de computação e direito;
+\end{itemize}
+
+A metodologia utilizada para a realização deste trabalho foi a realização de estudo bibliográfico aprofundado a respeito da Lei Geral de Proteção de Dados, demonstrando os aspectos jurídicos, utilizando manuais e guias já estabelecidos. Após ter analisado e estudado sobre as atuais tecnologias para a criação deste projeto, concluiu-se que a melhor linguagem de programação a ser usada seria o \textit{Javascript}, devido à grande comunidade de desenvolvedores, a facilidade de aprendizado, o suporte e crescimento da linguagem nos últimos anos.
+
+
+%Organização do Trabalho%
+Este trabalho está organizado da seguinte maneira. No Capítulo \ref{ch: fundamentacao teorica} serão abordados os conceitos fundamentais para o entendimento do método proposto. O Capítulo \ref{ch: trabalhos relacionados} apresenta os trabalhos que possuem relação com esta obra. O Capítulo \ref{ch: materiais e métodos} descreve o desenvolvimento do método proposto. Os Capítulos \ref{ch: resultados} e \ref{ch: conclusao}, respectivamente, apresentam os resultados obtidos mediante experimentos, conclusões e trabalhos futuros.
+
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %                      Capítulo 2                      %
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setcounter{chapter}{1}
+\chapter{Fundamentação Teórica}
+\label{ch: fundamentacao teorica}
+
+Neste capítulo, serão apresentados os conceitos teóricos da LGPD fundamentais para um bom entendimento deste trabalho. Também serão abordados os tópicos teóricos importantes para entendimento da Lei Geral de Proteção de Dados, no que tange a sua origem, os conceitos fundamentais, os tipos de dados, pessoas envolvidas na LGPD, e compreender a proposta de \textit{framework} a ser desenvolvido nesse trabalho.
+
+\section{Origem da Lei Geral de Proteção de Dados }
+\label{sec: exemplo}
+
+A Lei Geral de Proteção de Dados (LGPD) é um grande marco legal tecnológico. Reflexo de grandes mudanças sociais e econômicas da era digital no Brasil, visando a respeito dos tratamentos de dados pessoais, tendo sua origem através do projeto de lei complementar n.º 53/2018, e depois surgindo através da lei n.º 13.709 (BRASIL, 2018). 
+
+A LGPD tem grande parte do seu texto legal fortemente baseado na lei europeia denominada General Data Protection Regulation (GDPR), que entrou em vigor na União Europeia em 2018 (REDECKER et al., 2021). A GDPR é uma lei em resposta ao atual cenário da sociedade conectada e digital em que estamos construindo. Com as transformações constantes, vivemos em um mundo de big data e jamais em tempo algum da história, volume tão significativo de informações foi processado ininterruptamente e exponencial pelas organizações em geral e também pelas próprias pessoas naturais (VAINZOF; MALDONADO; BLUM, 2020).
+
+
+Diariamente geramos inúmeros dados, seja ao utilizarmos um site, um aplicativo, fazendo um cadastro em uma loja física ou digital, ao ouvir uma música, ou realizando qualquer atividade do cotidiano. Tais dados são capturados voluntariamente, sendo o usuário cedendo por vontade própria, ou de modo involuntária, onde o usuário não sabe que seus dados estão sendo coletados e sua privacidade podendo ser comprometida. 
+
+Os proprietários dos dados podem gerar um número massivo de dados e informações, de forma que as empresas coletam e utilizam o poder dos dados para vários fins em seus negócios. Os renomados doutrinadores, especialistas e autores em proteção de dados comparam o poder do dado com o novo petróleo, visto o valor agregado dos dados para o crescimento financeiro e estrutural de uma empresa (JOBIM et al., 2021) . 
+No Brasil, antes da entrada em vigor da LGPD e mesmo após sua vigência, inúmeras empresas e entidades governamentais ainda são vítimas de vazamento de dados. Visto que os hackers ou crackers se utilizam de seus conhecimentos tecnológicos avançados, sempre visando buscar brechas em sistemas para invadir, ou simplesmente aproveitam de erros do fator humanos que se aproveitará para utilizar para capturar ou viola a empresa, causando prejuízos (ALMEIDA; LIMA; MAROSO, 2020).
+
+Com a evolução da tecnologia, as leis devem andar passo a passo com a sociedade e a tecnologia, não para criar burocracias legais, mas para auxiliar ao convívio pacifico social, como salienta (ROSENVALD; FALEIROS JR, 2021), para que em caso de eventuais problemas que surgirem, tenham uma base legal que respeite as garantias e direitos individuais e coletivos. 
+
+A tecnologia sempre está avançando, e com isso novas tendências surgem e se fortalecem. Temos como exemplos: blockchain, big data, internet das coisas (IOT), inteligência artificial, criptomoedas, metaverso, NFTs. Essas novas tecnologias já fazem parte do cotidiano de várias pessoas no Brasil e ao redor do mundo, e esses dados gerados que serão armazenados, extraídos, minerados e tratados (VAINZOF; MALDONADO; BLUM, 2020).
+
+\section{Conceitos fundamentais relacionados a LGPD }
+A palavra privacidade tem origem no latim, derivando do verbo privare e do adjetivo privatus. A proteção da privacidade no Brasil, tem base legal na Constituição Federal de 1988, presente no artigo 5.º, inciso X, onde é resguardado o direito às garantias e direitos fundamentais a intimidade da vida privada e também as garantias a inviabilidade de interceptações telefônicas, ou telegráficas, ou de dados (DONEDA, 2020).
+
+\subsection{\textit{Compliance}}
+
+A palavra compliance tem origem do verbo inglês “to comply”, cujo a tradução do inglês para o português significa os seguintes verbos: cumprir, concordar, adequar, satisfazer, ou seja, estar de acordo com uma regra ou norma (LAMBOY, 2018). Então, quando é dito que uma empresa está em compliance, pode se dizer que ela está seguindo as regras, leis, normas, regulamentos de forma limpa e correta.
+
+Nas empresas no ambiente interno, um programa de compliance demonstrará análises que a empresa está agindo de forma ética com seus clientes, consumidores, parceiros, e a sociedade. O compliance de uma organização feita efetivamente para respeitar as regras internas e externas, ajudará bastante no programa de prevenção de futuros incidentes, que somado junto com a LGPD servirá para evitar muitos problemas internos, como o tratamento irregular de dados, vazamentos, falta de segurança, compartilhamento de dados, etc., (SERAFINO; JACINTO; BLUM, 2020).
+
+Para uma empresa estar em compliance com a LGPD, segundo (PINHEIRO, 2018) deve se analisar alguns fatores elementais. Devem ser analisados a cultura da organização e a gestão, as boas práticas de segurança adotadas, e o treinamento de colaboradores. Também, a empresa necessita ter profissionais capacitados para realizar atividades que envolvam o tratamento de dados pessoais, de modo a adotar ferramentas de segurança de dados, procedimentos de documentação e fluxos que permitam controle e auditoria de dados. 
+
+\subsection{Dados Pessoais}
+
+A LGPD em seu entendimento presente no artigo 5º, inciso I, conceitua que dados pessoais são pertencentes a pessoa natural, identificada ou identificável. (BRASIL, 2018).  Sendo considerado dados pessoais informações que servem para identificar uma pessoa, como o caso elenca (HOEREN; PINELLI; WACHOWICZ, 2020), sendo o nome, sobrenome, CPF, RG, título de eleitor, endereço, estado civil, gênero, profissão, origem, etnia, questões relacionadas à saúde, orientação sexual, genética e outras informações que podem ser identificáveis.
+
+Os dados pessoais como demonstrado em (VAINZOF; MALDONADO; BLUM, 2020) podem se dividir e se classificar em:
+\begin{itemize}
+\item Dados pessoais diretos: a identificação da pessoa natural pode ser realizada sem a necessidade de outras informações como CPF, RG, nome, caso não tenham homônimos;
+\item Dados pessoais indiretos: necessita de informações complementares para identificar uma pessoa como interesses, hábitos de consumo profissão, sexo idade e geolocalização;
+\end{itemize}
+
+Atualmente surgem novas técnicas para caracterizar uma pessoa, como elenca  (BASAN, 2021) utilizando-se de metadados baseando se em informações dos usuários, como a de seus gostos, desejos e preferências elaborando e criando o perfil de comportamento das pessoas a partir de dados pessoais, chamando essa técnica de profiling.
+
+\subsection{Dados Anonimizados e pseudonimizados}
+
+Os dados anonimizados tem previsão legal no artigo 12 da LGPD, não são considerados dados pessoais, exceto quando o dado pessoal que passou pelo processo de anonimização for revertido (BRASIL, 2018)  como exemplo a descriptografia. A anonimização dos dados pessoais é uma importante técnica para implementação da segurança da informação e compliance com a LGPD (MAROSO, 2020). Visto que o dado passará por um tratamento de anonimização fazendo com que o dado perca a possibilidade de associação, direta ou indireta, a um indivíduo, dificultando a identificação de determinado indivíduo  (PINHEIRO, 2018).
+
+No mesmo sentido (DONEDA, 2020) descreve “anonimização” de dados pessoais — a retirada do vínculo da informação com a pessoa a qual se refere — é um recurso que algumas leis de proteção utilizam para diminuir os riscos presentes no seu tratamento. A mitigação de riscos é também obtida com procedimentos de pseudo minimização que, embora não torne o dado anônimo, pode dificultar a identificação do titular, somente sendo possível associar esses dados pessoais pseudonimizados, com informações adicionais mantidas pelo controlador, em um ambiente controlado e seguro (VAINZOF; MALDONADO; BLUM, 2020).
+
+O uso de técnicas como a de criptografia, de função hash ou outras tecnologias que garantam a segurança e integridade dos dados, (MASSENO; WACHOWICZ, 2020) demonstra a preocupação com a segurança dos dados, elencando a importância de usar mecanismos de cifragem para que os dados não possam reversíveis por pessoas não autorizadas.
+
+\subsection{Consentimento do titular}
+
+O titular da LGPD tem previsão legal no artigo 5, inciso V, são pessoas físicas que os dados pessoais são objeto de tratamento. Entretanto, para um dado pessoal após a LGPD passar por tratamento é necessário o consentimento do titular. O referido consentimento é manifestação da vontade do titular. Previsto no artigo 5, inciso XII, como exemplifica o guia fornecido pela Autoridade Nacional de Proteção de Dados (ANPD), descrevendo que a manifestação de vontade precisa ser livre e inequívoca, formada mediante o consentimento de todas as informações necessárias para tal. Deve se incluir a finalidade do tratamento de dados e eventual compartilhamento, restrita às finalidades específicas e determinadas informadas ao titular de dados (BRASIL, 2018).
+
+Em (COTS; OLIVEIRA, 2019) podendo por vontade do titular, o consentimento ser revogado a qualquer momento, mediante manifestação expressa de seu titular, tendo o titular o direito ao acesso a informações sobre o tratamento de seus dados, disponibilizado de forma clara e adequada.
+
+Entretanto, após o consentimento do titular, para novos tratamentos, revogações ou eliminações não será necessário que o titular dê novamente um novo consentimento. Sendo necessário informá-lo acerca de modificações e alterações realizadas que dizem a respeito da finalidade do tratamento dos dados, forma e duração do tratamento, a respeito da identificação do controlador e a respeito do uso compartilhado de dados pelo controlador (LIMA; MALDONADO; BLUM, 2020) caso o titular não concorde com os novos procedimentos, o mesmo poderá revogar o consentimento.
+
+Em casos específicos, a LGPD tem regras diferentes a respeito do consentimento. No caso de dados pessoais que envolvam crianças, os dados só poderão ser tratados mediante prévio consentimento prévio dos pais ou responsável legal pelo titular, conforme art. 14, §1 da LGPD, (BRASIL, 2018). Conforme (BURGER; WACHOWICZ, 2020), os adolescentes não estão explicitamente aplicados às mesmas regras, visto que os adolescentes estariam dotados de capacidade jurídica para consentir de forma própria, ou seja, autônoma para o tratamento dos próprios dados.
+
+\subsection{Tratamento de dados}
+
+
+Eam purto posse repudiare id! Graeco pericula definiebas eu per, an per oratio fastidii expetenda. Ei natum noluisse disputando mei, eos in porro dignissim elaboraret? Ius id rebum conforme Tabela \ref{tab: comparacao de exames}.
+\begin{table}[ht]
+    \centering
+    \caption{Tabela comparativa dos Exames Médicos por Imagem.}
+    \label{tab: comparacao de exames}
+    \begin{tabular}{|p{5 cm}|p{4.5cm}|p{5cm}|} 
+        \hline
+        \textbf{Hipótese de tratamento} & \textbf{Dispositivo legal} & \textbf{Requer consentimento?} \\ \hline
+        
+         Hipótese 1: Mediante consentimento do titular & LGPD, art. 7º, inciso I & Sim \\ \hline
+         
+        Hipótese 2: Para o cumprimento de obrigação legal ou regulatória & LGPD, art. 7º, inciso II & Não  \\ \hline
+        
+        Hipótese 3: Para a execução de políticas públicas
+ & LGPD, art. 7º, inciso III & Não. \\ \hline
+ 
+        Hipótese 4: Para a realização de estudos e pesquisas & LGPD, art. 7º, inciso IV & Não  \\ \hline
+        
+        Hipótese 5: Para a execução ou preparação de contrato & LGPD, art. 7º, inciso V & Termos de consentimento definidos no contrato ou decorrentes da autonomia da vontade  \\ \hline
+        
+        Hipótese 6: Para o exercício de direitos em processo judicial, administrativo ou arbitral & LGPD, art. 7º, inciso VI & Não  \\ \hline
+        
+        Hipótese 7: Para a proteção da vida ou da incolumidade física do titular ou de terceiro & LGPD, art. 7º, inciso VII & Não  \\ \hline
+        
+        Hipótese 8: Para a tutela da saúde do titular & LGPD, art. 7º, inciso VIII & Não  \\ \hline
+        
+        Hipótese 9 : Para atender interesses legítimos do controlador ou de terceiro & LGPD, art. 7º, inciso IX & Não  \\ \hline
+        
+        Hipótese 10: Para proteção do crédito & LGPD, art. 7º, inciso X & Não  \\ \hline
+    \end{tabular}
+    \newline \newline Fonte: XXXXXXXXXXXXXXXXXX, adaptado.
+\end{table}
+
+Para o tratamento de dados pessoais é necessário não somente se atentar às hipóteses elencadas acima, todavia também a outros fatores, como os princípios e demais artigos da LGPD. Em mesmo contraste, deve-se também ter conhecimento de procedimentos e mecanismos que possam garantir segurança ao tratamento de dados pessoais, conforme (VAINZOF; BLUM; FABRETTI, 2020a).
+
+Na realização do tratamento, sempre deve ser feita de forma ética e atenta ao compliance, considerando a observância da boa-fé e dos dez princípios fundamentais da LGPD, (BRASIL, 2018), previstos nos incisos do artigo 6.º, sendo:
+
+\begin{itemize}
+\item finalidade: realização do tratamento para propósitos legítimos, específicos, explícitos e informados ao titular, sem possibilidade de tratamento posterior de forma incompatível com essas finalidades;
+\item adequação: compatibilidade do tratamento com as finalidades informadas ao titular, conforme o contexto do tratamento;
+\item necessidade: limitação do tratamento ao mínimo necessário para a realização de suas finalidades, com abrangência dos dados pertinentes, proporcionais e não excessivos em relação às finalidades do tratamento de dados;
+\item livre acesso: garantia, aos titulares, de consulta facilitada e gratuita sobre a forma e a duração do tratamento, bem como sobre a integralidade de seus dados pessoais;
+\item qualidade dos dados: garantia, aos titulares, de exatidão, clareza, relevância e atualização dos dados, de acordo com a necessidade e para o comprimento da finalidade de seu tratamento;
+\item transparência: garantia, aos titulares, de informações claras, precisas e facilmente acessíveis sobre a realização do tratamento e os respectivos agentes de tratamento, observados os segredos comercial e industrial;
+\item segurança: utilização de medidas técnicas e administrativas aptas a proteger os dados pessoais de acessos não autorizados e de situações acidentais ou ilícitas de destruição, perda, alteração, comunicação ou difusão;
+\item prevenção: adoção de medidas para prevenir a ocorrência de danos em virtude do tratamento de dados pessoais;
+\item não discriminação: impossibilidade de realização do tratamento para fins discriminatórios ilícitos ou abusivos; 
+\item responsabilização e prestação de contas: demonstração, pelo agente, da adoção de medidas eficazes e capazes de comprovar a observância e o cumprimento das normas de proteção de dados pessoais e, inclusive, da eficácia dessas medidas.
+\end{itemize}
+
+Caso o tratamento de dados aconteça de forma irregular, ou seja, com violações ou não conformidade aos princípios e artigos, de modo a não garantir a segurança dos dados pessoais necessários ao titular dos dados, poderá reparar os danos que causar, conforme o artigo 42 da LGPD. O referido artigo, elenca as responsabilidades e sanções, conforme se posicionam (REDECKER et al., 2021)
+
+Caso o titular se sinta prejudicado, conforme salienta (BRUNO; MALDONADO; BLUM, 2020), podendo busca pela equiparação do dano sofrido na esfera do judiciário, importante o papel do órgão regulador que é a Agência Nacional de Proteção de Dados (CNPD), atuando para fiscalizar e garantir o cumprimento da referida lei.
+
+Dependendo da gravidade contrária a LGPD realizada pelo agente de tratamento, poderá incidir as previsões legais de sanções administrativas do artigo 52. Conforme (ALVES; MALDONADO; BLUM, 2020) demonstra as sanções, dentre elas temos: advertência, a publicidade da infração depois de devidamente apurada, o bloqueio da utilização de dados pessoais, a eliminação dos dados pessoais das pessoas prejudicadas. 
+
+Por fim, dentre as piores sanções que podem acontecer com a organização é a multa, que dependerá da gravidade e da violação. Podendo uma multa diária ou multa simples que conforme a lei poderá chegar até 2\% (dois por cento) do faturamento da pessoa jurídica, com o valor se limitando até R\$ 50.000.000 (cinquenta milhões de reais) por infração. (BRASIL, 2018).
+
+\subsection{Ciclo de vida dos dados}
+
+Em (PINHEIRO, 2021a), é definido que o ciclo de vida de um dado é um período onde o gerenciamento da informação ao longo de todo o seu processo geração e armazenamento, partindo desde sua captação, transmissão, modificação e manipulação, gravação, conservação, comunicação, compartilhamento até o seu descarte.
+
+Como descreve (LIMA; ALMEIDA; MAROSO, 2020a) que o ciclo de vida de um dado tem um fim, visto que é indicado que um dado não seja guardado por tempo indeterminado. O armazenamento de dados pessoais sem justificativa legal é um grande risco, se tornando desnecessário, visto que armazenar dados pessoais sem justificativa legal é um grande risco, pois a finalidade de coleta e tratamento já se encerrou.
+
+As fases do ciclo de vida são constantes, e podem ser de fácil entendimento conforme a ilustração conforme a figura \ref{fig: 01CicloDeVida} abaixo:
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=5.0in]{Images/01CicloDeVida.png}
+    \caption{Fases do ciclo de vida de um dado. Fonte: Xpositum consultória empresarial.}
+    \label{fig: 01CicloDeVida}
+\end{figure}
+
+Antes da existência da LGPD, o ciclo de vida de um dado não necessariamente deveria cumprir certos requisitos de segurança, de modo a ocorrer erros que podem comprometer a segurança do dado caso utilizado de forma indiscriminada. Entretanto, com o surgimento da LGPD, rompe-se com esses possíveis erros. Surgem novas ideias, como a necessidade de utilizar mecanismos de segurança, adotando desde a sua concepção até o fim da vida de um dado, e também utilizando criptografia, controles e níveis de acesso aos dados, e mecanismos de autenticação (CASTRO; GROSSI, 2020),garantindo a segurança e a integridade em todo o ciclo de vida do dado e da informação (JIMENE; MALDONADO; BLUM, 2020).
+A figura do quadro ilustrativo feito pela Xpositum consultória \ref{fig: 02CicloDeVida}, elucida o efeito que a LGPD trouxe de antes e depois das fases de ciclo de dados:
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=6.3in]{Images/02CicloDeVida.png}
+    \caption{Análise do antes e depois da LGPD. Fonte: Xpositum consultória empresarial.}
+    \label{fig: 02CicloDeVida}
+\end{figure}
+
+Conforme descrito por (LIMA; ALMEIDA; MAROSO, 2020), é importante que a organização controladora ou operadora dos dados, entenda, desde a adequação, que é um tema de supra importância. Para (DONDA, 2020) entender e documentar o ciclo de vida dos dados da organização é vital para o processo de adequação, sendo necessário saber quem tem acesso aos dados durante a fase de processamento, e se essas pessoas possuem conhecimento de suas obrigações e responsabilidades para corresponder com a referida lei.
+
+\section{Personas da LGPD}
+\label{sec: exemplo2}
+
+Nessa seção serão descritos os principais agentes para consolidação da LGPD, desde o controlador e operador dos dados, como o principal na implementação e tratamentos de dados sendo o encarregado dos dados.
+
+\subsection{Controlador e operador dos dados}
+
+O controlador dos dados é um dos agentes responsáveis pelo tratamento de dados pessoais. Sua previsão legal está no artigo 5, inciso VI da LGPD, podendo ser exercido por uma pessoa física ou jurídica, de direito público ou privado, competindo as decisões a respeito do tratamento dos dados pessoais. (BRASIL, 2018). Já o outro agente fundamental para a LGPD é o operador, conforme descreve (POHLMANN, 2019a), que será exercido por uma pessoa física ou jurídica, que a mando do controlador, realizará o tratamento dos dados pessoais.
+
+O Guia de Boas Práticas da LGPD (2020), traz um exemplo prático e lúcido a respeito do controlador. O exemplo é o de um profissional médico, que armazena os dados pessoais de seus pacientes no computador do consultório. Nesse exemplo, o médico será o controlador dos dados pessoais, cabendo-lhe seguir todos os trâmites legais para a proteção de dados pessoais e de saúde dos seus pacientes.
+
+Conforme (DONDA, 2020b)explica e salienta, que o controlador terá inúmeros papéis, dentre um deles o previsto no artigo 37 da LGPD que será o de manter registro das operações de tratamento de dados pessoais que realizaram, se baseando no legítimo interesse; e o previsto no artigo 48 de comunicar a ANPD e ao titular a ocorrência de incidente de segurança que possa acarretar risco ou dano relevante aos titulares. De tal modo, o (guia LGPD) situa também o papel de elaborar o relatório de impacto à proteção de dados pessoais, previsto no artigo 38 da referida lei, tendo também o papel de fornecer informações referentes ao tratamento, assegurar correções e eliminação de dados se respaldando do direito dos titulares conforme o artigo 18. (BRASIL, 2020).
+
+Já o operador de dados será exercido por uma pessoa física ou jurídica, que a mando do controlador, realizará o tratamento dos dados pessoais, previsto legalmente no artigo 5º, inciso X e também o artigo 39 da LGPD. O operador somente poderá tratar os dados para a finalidade estabelecida pelo controlador, pois o poder de decisão pertence ao controlador, de modo que o operador também deverá manter os registros das operações de tratamentos de dados que realizou. (BRASIL, 2018).
+
+De modo a sintetizar a LGPD, o autor (FURTADO; BLUM; FABRETTI, 2020) elencou uma tabela  x relacionando as principais atividades exercidas pelo controlador com os artigos e tópicos, conforme demonstrada abaixo:
+
+\begin{table}[ht]
+    \centering
+    \caption{Tabela comparativa responsabilidades do controlador de dados.}
+    \label{tab: responsabilidades do controlador}
+    \begin{tabular}{|p{4 cm}|p{11.5cm}|p{0cm}|} 
+        \hline
+
+        \textbf{Artigo da LGPD} & \textbf{Principais responsabilidades do controlador}  \\ \hline
+
+Art. 6º, X
+&
+\begin{tabitemize}
+\item Identificação do responsável pelo preenchimento;
+\end{tabitemize}\\ \hline
+Art. 9º, I a V
+&
+\begin{tabitemize}
+\item Finalidade específica do tratamento;
+\item Forma do tratamento;
+\item Duração do tratamento;
+\item Identificação do controlador inclusive as informações de contato;
+\item Informações acerca do uso compartilhado de dados pelo controlador e a finalidade do compartilhamento;
+\end{tabitemize} \\ \hline
+Arts. 7º, 11 e 14
+&
+\begin{tabitemize}
+\item Identificar qual a base legal atribuída a cada operação;
+\end{tabitemize}\\ \hline
+
+Capítulo V
+&
+\begin{tabitemize}
+\item Informações relacionadas a transferência internacional, se houver;
+\end{tabitemize}\\ \hline
+
+Art. 48º, §1º, I e II
+&
+\begin{tabitemize}
+\item A natureza dos dados pessoais afetados;
+\item As informações sobre os titulares envolvidos;
+\end{tabitemize}\\ \hline
+
+ 
+    \end{tabular}
+    \newline \newline Fonte: XXXXXXXXXXXXXXXXXX, adaptado.
+\end{table}
+
+Existe uma certa complexidade para a identificação e diferenciação do controlador para o operador existindo essa lacuna na LGPD, (ALVES; GUIDI; BLUM, 2020). Para ficar a diferenciação dos papéis dos dois agentes de fácil entendimento, o European Data Protection Surpevisor (EDPS) no ano de 2019 editou um guia para elencar os papéis e consultas desses agentes. Já no trabalho de (VAINZOF; BLUM, 2020) é elencado responsabilidades similares às do controlador e do operador.
+
+O controlador terá maiores responsabilidades, já o operador atuará de forma subordinada, respeitando as decisões proferidas pelo controlador, visto que conforme o artigo 42 da LGPD, ambos têm responsabilidade solidária aos danos causados em decorrência do tratamento irregular. (BRASIL, 2018).  Baseando-se nas informações obtidas em (ALVES; GUIDI; BLUM, 2020) e de (VAINZOF; BLUM, 2020), foi construído a tabela X, com as responsabilidades exclusivas do controlador, e as atividades e tarefas de são responsabilidade do operador ou do controlador, conforme abaixo descrito  abaixo:
+
+\begin{table}[ht]
+    \centering
+    \caption{Diferenças entre Controlador X Operador}
+    \label{tab: Diferenças entre controlador e operador}
+    \textbf{Diferenças entre controlador e operador}  \\ \hline
+
+    \begin{tabular}{|p{4 cm}|p{11.5cm}|p{0cm}|} 
+        \hline
+
+Papéis e tarefas de responsabilidade exclusivas do controlador
+&
+\begin{tabitemize}
+\item o controlador decide realizar o tratamento dos dados pessoais ou solicita que outro o faça, que no caso poderá ser o encarregado;
+\item o controlador indica operador para o tratamento de dados em seu nome;
+\item o controlador decide a finalidade do tratamento;
+\item o controlador possui relação direta com os titulares dos dados;
+\item o controlador indica o encarregado pelos dados (DPO);;
+\end{tabitemize}\\ \hline
+
+Responsabilidades similares do controlador e do operador
+&
+\begin{tabitemize}
+\item Adotar medidas de segurança, técnicas e metodologias administrativas e tecnológicas aptas a proteger os dados pessoais de acessos não autorizados, fornecendo logs de acesso, e de lidar com situações que envolvam acidentes, destruição, perda, alteração ou qualquer forma de tratamento ilícito, ou inadequado;
+
+\item Estabelecer regras e metodologias de boas práticas, levando em conta os princípios basilares da LGPD, e formas de garantir a segurança e integridade dos dados pessoais dos titulares;
+
+\item Garantir aos titulares com exatidão e clareza como os dados estão sendo tratados, e fornecer de forma facilitada e gratuita quando o titular exigir informações a respeito dos dados armazenados;
+
+\item Impossibilitar a realização do tratamento para fins discriminatórios, e de modo a prevenir danos em virtude do tratamento de dados pessoais;
+
+\end{tabitemize}\\ \hline
+ 
+    \end{tabular}
+    \newline \newline Fonte: XXXXXXXXXXXXXXXXXX, adaptado.
+\end{table}
+Elucidando o papel de cada agente, o Guia de Boas Práticas da LGPD (2020), trouxe alguns exemplos de casos envolvendo a LGPD. Um dos exemplos é de uma empresa de e-commerce “XYZ” que será a responsável pela venda de produtos, nesse exemplo será exercido pelo “controlador de dados pessoais”. Entretanto, para que o cliente efetue a compra é necessário o pagamento, que no exemplo dependerá da existência de uma fintech ABC para fazer a transferência bancária, de modo que o papel será o de operador.
+
+No exemplo acima, o operador de dados não poderá fazer tratamento de dados pessoais fora do que foi orientado pelo controlador. Além disso, o operador não pode utilizar os dados para novos fins que não tenham sido determinados e aprovados pelo controlador.
+
+\subsection{Encarregado dos dados}
+
+Um dos papéis mais relevantes dentro da LGPD é o do Encarregado da Proteção de Dados (EDP). No Brasil, o encarregado também é conhecido popularmente pela sigla inglesa DPO originária de Data Protection Officer. O papel do encarregado será responsável, conforme o artigo 5.º, inciso VIII da LGPD, pela conexão entre a empresa com a Autoridade Nacional de Proteção de Dados (ANPD), e de igual modo com os titulares de dados. (BRASIL, 2018). 
+
+No programa de implementação da LGPD, o encarregado terá não comente as responsabilidades descritas acima, mas também o de fazer a empresa entrar em compliance com as normas, padrões e principalmente com os artigos da LGPD. Os conhecimentos em ferramentas, técnicas e metodologias que respeitem os princípios da proteção de dados e outras funções serão importantes para as soft skills do encarregado (VAINZOF; BLUM, 2020).
+
+O Encarregado de Proteção de Dados tem sua base legal no artigo 41 da LGPD, indicado pelo controlador da empresa. De tal modo, é necessário que a identidade e as informações do encarregado sejam divulgadas publicamente, de forma clara e objetiva no site do controlador(VAINZOF; BLUM, 2020).
+
+O perfil específico para a função de encarregado não é descrito na LGPD, de modo que poderá ser exercido por profissional de qualquer área, podendo ser um advogado, contador, profissional de T.I, etc. Entretanto, é desejável que tenha conhecimento aprofundado em tecnologia e direito digital, e sempre se aperfeiçoando em novos conhecimentos a respeito de proteção de dados e segurança digital. [(VAINZOF; MALDONADO; BLUM, 2020c)
+
+Não sendo necessário conforme nos diz (VAINZOF; MALDONADO; BLUM, 2020c)o encarregado ter vínculo trabalhista com a empresa, podendo ser desempenhado por um terceirizado, pessoa física ou jurídica.  É importante para o papel do encarregado estar presente e atuando ativamente nas decisões de gestão da empresa em relação aos dados pessoais.
+
+Conforme descrevem os autores (VAINZOF; BLUM; FABRETTI, 2020b) e  (CHAVES; MALDONADO; BLUM, 2020), o encarregado terá várias tarefas e funções importantes, dentre elas elencadas na lista abaixo:
+
+
+\begin{itemize}
+\item estabelecer comitês de privacidade, políticas de privacidade, treinamentos, políticas de relacionamento com fornecedores e públicos, verificando as normas internas e externas;
+\item sendo o porta-voz da empresa, aceitar reclamações e comunicações dos titulares, prestando esclarecimentos e adotando providências;
+\item comunicar a ANPD de possíveis incidentes como vazamento de dados, invasões, etc.; 
+\item cooperar com a ANPD sempre que for solicitado;
+\item criar ações educativas;
+\item estabelecer mecanismos internos de supervisão e de redução de riscos;
+\item monitora conformidade das atividades de tratamentos de dados pessoais com a regulamentação e normas vigentes;
+\item ter feito a realização dos relatórios de impacto à proteção de dados e demais documentações necessárias.
+\end{itemize}
+
+\subsection{ANPD}
+
+A Autoridade Nacional de Proteção de Dados (ANPD) é um órgão da administração pública responsável pela fiscalização e comprimento da LGPD. Surgiu com base legal no artigo 55-A, criando a ANPD, com o objetivo de trazer estabilidade e segurança para a aplicação LGPD.(PINHEIRO, 2021b)
+
+Segundo o autor (VAINZOF; MALDONADO; BLUM, 2020)a ANPD tem mais de 40 previsões legais dentro da LGPD para diversas finalidades. As principais competências serão previstas no artigo 55-J, onde a ANPD é responsável por vigiar, monitor, solicitar ao controlador ou encarregado o relatório de impacto à proteção de dados e principalmente fiscalizar o cumprimento da LGPD, caso a empresa descumpra a legislação da LGPD, a aplicação de multa poderá chegar até 50 milhões de reais pelas infrações contrárias à lei      ([15], p. 308).  
+
+Em (POHLMANN, 2019b)), descreve também outras competências, como a de aplicar sanções e elaborar diretrizes para política nacional de proteção de dados pessoais e privacidade. Terá a função de criar padrões normativos, guias informativos,      (MAGALHÃES; PESSOA; GROSSI, 2020)), baseando-se em técnicas de medidas de segurança, receber as comunicações de incidentes envolvendo dados pessoais, responsável do governo por cuidar que os direitos dos titulares sejam mantidos e respeitados (GUTIERREZ; MALDONADO; BLUM, 2020).
+
+Para o sucesso da efetividade e aplicação da LGPD em território brasileiro, conforme salienta ((PINHEIRO, 2021c) p. 34) é necessário e fundamental dentre suas funções que a ANPD atenda as diversas partes interessadas, desde o titular dos dados, passando pelos entes privados e públicos, alinhando-se aos três poderes Executivo, Judiciário e Legislativo.
+
+((VAINZOF; MALDONADO; BLUM, 2020e), p. 124), remete que o modelo ideal para a ANPD seja que independente, tanto financeiramente, tanto pelas suas decisões, sendo única, central, e formada internamente por um corpo técnico com conhecimento tecnológico, econômico, administrativo, jurídico e de negócios.
+
+Conforme descrito em seções anteriores, o encarregado, deve ser o canal de comunicação entre a ANPD, o controlador, e principalmente os titulares dos dados, responsável por comunicar ao órgão competente e aos titulados dados a ocorrência de incidente de segurança que possa acometer riscos ou danos aos titulares, adotando providências e recebendo comunicações da ANPD. (MAGALHÃES; PESSOA; GROSSI, 2020)] p. 290).
+
+Na Figura \ref{fig: Fluxo } é possível visualizar as imagens obtidas neste protocolo.
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=3.0in]{Images/04FluxoLGPD.png}
+    \caption{Fonte: Autor.}
+    \label{fig: Fluxo }
+\end{figure}
+
+\section{A importância da segurança da informação }
+
+O conceito da terminologia de “informação”, conforme é dito por  (SeMOLA, 2003) 45, tem o significado de “um conjunto de dados utilizados para transferência de uma mensagem entre indivíduos e ou máquinas em processos comunicativos”. Já o conceito de segurança da informação é definido como uma área do conhecimento dedicada à proteção de ativos da informação contra acessos não autorizados, alterações indevidas ou sua indisponibilidade.
+
+A segurança da informação busca de forma singular e objetiva definir regras que incidem em proteger todos os momentos de um ciclo de vida da informação, seja nos processos de: armazenamento, transferência, descarte, manuseio e demais processos, buscando identificar e ter o controle contra ameaças e vulnerabilidades. (SEeMOLA, 2003)  p,41.
+
+O autor ((WEIDMAN, 2014), 21) nos diz que um dos objetivos de um programa de segurança da informação é preservar os três princípios básicos, sendo necessário definir o que é necessário para preservar o nível desejado dos princípios de confidencialidade, integridade e disponibilidade dos sistemas de T.I e dos dados de uma empresa. De modo que o autor (SEeMOLA, 2003)  p,45 elenca o conceito desses princípios:
+
+\begin{itemize}
+\item Confidencialidade: é um princípio que significa que toda informação deve ser protegida conforme o grau de sigilo de seu conteúdo, visando a limitação de seus acesso e uso apenas às pessoas para quem elas são destinadas;
+\item Integridade: tem o significado que toda informação deve ser mantida na mesma condição que ela foi disponibilizada pelo seu proprietário, visando protegê-las contra alterações indevidas, intencionais ou acidentais;
+\item Disponibilidade: por fim, esse princípio significa que toda informação gerada ou adquirida por um indivíduo, ou instituição deve estar disponível aos seus usuários no momento em que os mesmos necessitem para qualquer finalidade.
+\end{itemize}
+
+O programa de segurança da informação quando bem empregado se torna a defesa contra as vulnerabilidades, ataques de crackers e hackers, riscos de vazamentos. Conforme profere (SeMOLA, 2003)  p,19 sobre tais desafios, também elenca a respeito que a todo instante os negócios, sejam eles baseados em processos e ativos físicos, tecnológicos e humanos sempre são alvo de ameaças que procuram lacunas, e se aproveitando dessas vulnerabilidades.
+
+\subsection{Cenário da segurança da informação no Brasil}
+
+A era digital, trouxe muitas vantagens para a sociedade, como a comunicação rápida e dinâmica entre pessoas, podendo a pessoa se comunicar de qualquer lugar do mundo com outras pessoas. Também permitiu a de buscar conhecimento de forma facilitada, sendo que num piscar de olhos pode se ter acesso a inúmeros conhecimentos e comodidades, como poder assistir um filme sem ter que sair de casa, fazer transferências de forma rápida, sem a necessidade de ir em um banco físico, e inúmeras facilitações que a inovação permite a quase todos.
+
+Porém, a era digital trouxe suas desvantagens, como a desigualdade tecnológica, e também o número de golpes, crimes virtuais, ataques cibernéticos, e outros riscos que aumentam de forma exponencial (OLHAR DIGITAL, 2020). As ameaças são incidentes que comprometem a instabilidade das informações, utilizando de exploração de vulnerabilidades, tendo como causa e efeito impactos diretos e indiretos aos negócios da organização.
+
+Conforme a matéria do site Combate à Fraude (2020) traz em seu artigo, no primeiro trimestre de 2020, em pleno surgimento do covid-19, o Brasil apareceu no ranking dos cinco países que mais sofreram por fraudes digitais. Visto que no ano de 2020, aumentou a quantidade de crimes digitais no Brasil, visto que através do auxílio emergencial e da inovação do Open Banking como forma de pagamento PIX, golpistas se aproveitam para aplicar fraudes e fazer vítimas, conforme a matéria do G1 (2020) mostra no ano de 2020 .
+
+Já no ano seguinte, em 2021, segundo o site Psafe, especializado em cibersegurança, projetou que no ano de 2021, a quantidade de pessoas que foram vítimas de phishing seria em torno de 150 milhões de brasileiros (PSAFE, 2021). Com esses fatores alarmantes, com a grande quantidade de golpes, e das vítimas que sofrem diariamente por causa de criminosos digitais que utilizam engenharia social, ou de falhas e vazamento de dados para cometerem crimes. 
+
+No Brasil, existe a necessidade do crescimento de políticas de segurança da informação, tanto para prever criminosos em solo nacional, quanto para precaver de guerras cibernéticas. Atualmente, o Brasil possui um Programa Estratégico de Defesa Cibernética, estruturado pelo Exército brasileiro, e também o decreto nº 9637/2018, que foi posteriormente alterado pelo decreto nº 10.641/2021 que é a Política Nacional de Segurança da Informação (PNSI), abrangendo defesa cibernética, segurança cibernética, segurança física e a proteção de dados organizacionais. (BRASIL, 2021).
+
+
+\section{Mecanismos de implementação da conformidade da LGPD}
+
+Neste trabalho será realizada a utilização de um \textit{framework} conceitual, aplicando as técnicas desenvolvidas em empresas, validando a eficiência, e permitindo a reutilização em outros tipos de empresa. Também serão replicados e reutilizados outros \textit{frameworks} como a família série ISO, o PCDA, e demais mecanismos para implementação da LGPD. 
+
+\subsection{Conceito de \textit{Framework}}
+
+Conforme descreve (KECHI, 2012)p. 198] \textit{framework} é uma arquitetura de processos que podem ser reutilizados e modificados, sendo uma conjuntura de bibliotecas e componentes, com a função de serem utilizados para desenvolvimento rápido e seguro das aplicações. Um \textit{framework} auxilia na agilidade da criação de padrão de projetos, componentes de softwares.
+
+Os benefícios de se utilizar ou criar \textit{frameworks} para implementação da proteção de dados está no reuso, na agilidade e na possibilidade de replicar nos projetos de gestão. Em (SOMMERVILLE, 2011), p. 301 diz a respeito do conceito de \textit{frameworks} “dão suporte ao reuso de projeto, bem como ao reuso de classes específicas de sistema, pois fornecem uma arquitetura de esqueleto para a aplicação. A arquitetura é definida por classes de objetos e suas interações.” 
+
+Conforme [(SILVA, 2021), p 38) os principais tipos de \textit{frameworks} se dividem em: \textit{framework} conceitual que auxilia a identificar itens relevantes e interessantes no domínio da aplicação que apresentam um formato visual de futuros sistemas. Já o \textit{framework} de projetos auxilia na transformação do modelo do domínio da aplicação em um projeto técnico, apresentando um conjunto de padrões ou por estilos de arquitetura. Por fim o \textit{framework} de software tem sua utilização na construção e implementação de sistemas computacionais de tamanhos variados, podendo ser de pequena ou média escala.
+
+\subsection{ISO 27000: \textit{Framework} de políticas de segurança da informação}
+
+A série de ISO 27000 foi criada e desenvolvida pela Organização Internacional de Padrões, fornecendo um \textit{framework} de segurança da informação, podendo ser aplicada em qualquer organização, independente do setor ou tamanho. [(POHLMANN, 2019a)]p.250
+
+Em breve análise, a ISO 27001:2013 define os requisitos a serem atendidos pelo Sistema de Gerenciamento da Segurança da Informação, podendo a organização obter certificação por meio da auditoria e a ISO 27002:2013, é tida como guia e manual de boas práticas para controle de segurança da informação, auxiliando na implementação de Sistema de Gestão de Privacidade da Informação (SGPI). [(JIMENE; MALDONADO; BLUM, 2020b), p. 384]. Para elucidar de forma fácil, a série de ISO 27000 abaixo uma figura elencando todas as normas ISO.
+
+Na Figura \ref{fig: Iso } é possível visualizar as imagens obtidas neste protocolo.
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=6.0in]{Images/03ISO.jpeg}
+    \caption{Fonte ISACA BH Chapter Elaborado por Fernando Fonseca.}
+    \label{fig: Iso }
+\end{figure}
+
+\subsection{ABNT NBR ISO/IEC 27701 }
+
+A norma ABNT NBR ISO/IEC 27701:2019 é referente a implementação, manutenção e melhoria contínua de um Sistema de Gestão de Privacidade da Informação (SGPI), sendo a extensão das ABNT NBR ISO/IEC 27001:2013 e ABNT NBR ISO/IEC 27002:2013 para gestão de privacidade. (ABNT, 2019).
+
+A ISO 27701:2019 estabelece critérios e fornece ferramentas para as empresas implementarem a SGPI, e sendo uma extensão para entrar em conformidade com a LGPD, como os itens que remetem ao artigo 50 da LGPD, que falam sobre boas práticas e governança, visto que, a LGPD não dispõe de maiores detalhes acerca dos requisitos técnicos de segurança a serem adotados na relação controlar e o operador, de modo, [(ALVES et al., 2020), p. 166], demonstra o autor. 
+
+ Pode se citar como alguns dos principais itens dessa ISO 27701:2019, conforme também [(VAINZOF; BLUM; FABRETTI, 2020b), p. 37], demonstra:
+\begin{itemize}
+\item Item 7.2.1: A organização deve identificar e documentar os propósitos específicos pelos quais os dados pessoais são tratados;
+\item Item 7.2.2: A organização deve identificar as bases legais pertinentes ao tratamento de dados pessoais;
+\item Item 7.2.3: A organização deve determinar e documentar um processo pelo qual possa demonstrar, quando e como o consentimento para o  tratamento de dados pessoais foi obtido;
+\item Item 7.2.5: A organização deve avaliar as atividades que geram riscos aos titulares para identificar e realizar relatório de impacto, quando necessário;
+\item Item 7.2.8: A organização deve determinar e manter de maneira segura os registros necessários ao suporte às suas obrigações para o tratamento de dados pessoais, demonstrando o tipo de tratamento, propósitos para o tratamento, relatório de Avaliação de Impacto de Privacidade, etc.
+\end{itemize}
+
+\subsection{ PDCA }
+
+Conforme consolida ([(LIMA; ALMEIDA; MAROSO, 2020b)] p, 64), a gestão de risco cibernético se baseia em alguns pilares, como: identificar, proteger, detectar e responder e recuperar. A ISO 27001 é constituída pelo processo PDCA, que se resume em Plan (planejar os controles); Do (implementar esses controles); Check (checar os controles); Act (agir, atualizando os controles, caso na etapa de verificação falhem).
+
+A implementação da LGPD tem várias etapas e processos, e o PCDA conforme demonstra o website Minuto da Segurança (2020), pode ser utilizado para simplificar a tarefa de conformidade. Em etapas em relação a LGPD, pode se dividir em 4 fases, que serão contínuas e forma de ciclo, conforme a figura x:
+
+\begin{itemize}
+\item Fase I  Plan — Planejar: essa é uma das fases importantes para o processo de conformidade, visto que deve se identificar os problemas, estabelecer os objetivos e metas, e planejar próximos passos. Conforme o site Minuto da Segurança (2020), deve-se analisar de início os 7 princípios da LGPD relacionados ao processo de dados, e também definir os objetivos no tratamento de dados.
+\item Fase II Do — Executar: será colocar em prática os planejamentos da etapa anterior. Executando utilizando tecnologias para auxiliar a implementação como \textit{frameworks}.
+\item Fase III Check — Check: Nessa etapa será de verificar se os trabalhos realizados nas etapas anteriores, verificando se estão sendo executados conforme o planejado. Nessa fase, o autor demonstra a importância de validar através do relatório de impactos a proteção de dados.
+\item Fase IV Act — Agir:  essa última fase será para corrigir processos que tenham desviado do que foi planejado, investigar as causas e tomar ações em prol de corrigir e melhorar os métodos dos processos. Gerando relatórios e documentações que possam ser úteis para futuras tomadas de decisões.
+\end{itemize}
+
+\subsection{ Privacy by Design  }
+
+O conceito de Privacy by Design, conforme demonstra ([(OLIVEIRA; GROSSI, 2020)] p.314),  significa em tradução para o português privacidade desde a concepção, e uma das suas principais origens foi através de um artigo da canadense Ann Cavoukian intitulado “Privacy by Design: The 7 Foundational Principles – Implementation and Mapping of Fair Information Practices”, ([(JIMENE; MALDONADO; BLUM, 2020b)] p.380), onde motivada que pelos avanços tecnológicos constante, apenas leis não seria o suficiente para garantir a privacidade do usuário, sendo necessário encorajar as empresas, e todos os envolvidos pela concepção de produtos e serviços, como exemplo desenvolvedores, designers, product manager, etc, a incorporar a privacidade desde o início do projeto, durante a execução até o fim ([(VAINZOF; BLUM; FABRETTI, 2020c)] p.44). 
+
+A metodologia Privacy by Design, para Ann Cavoukin (2011), trata-se de um framework, ([(OLIVEIRA; GROSSI, 2020)] p317),  para que de modo proativo, a privacidade seja pensada e construída não somente em tecnologias da informação, mas também em práticas de negócios, transformando e fazendo mudanças organizacionais, transformando o modo de operação padrão de entidades que lidam com produtos ou serviços, com o fim de assegurar que a privacidade seja realizada durante todo o ciclo do tratamento ([(FRAZÃO et al., 2019)] p53).
+
+A popularidade desse framework tornou-se requisito para conformidade da Regulamento Geral de Proteção de Dados (GDPR), expresso no artigo 25 do referido  regulamento, que a proteção de dados deve ser desde a concepção e como padrão ([(OLIVEIRA; GROSSI, 2020)] p318), de modo que aqui no Brasil, a LGPD aplica esse conceito no artigo 46, § 2°, com os seguintes dizeres a respeito das medidas de segurança e proteção de dados: “deverão ser observadas desde a fase de concepção do produto ou do serviço até a sua execução”. (BRASIL, 2018).
+
+\subsection{ Principais guias disponibilizadas pela ANPD  }
+
+A ANPD como mencionado no trabalho tem inúmeras funções, dentro delas a de elaboração de estudos, guias e orientações com objetivo de demonstrar as melhores práticas nacionais e internacionais de proteção de dados e privacidade, conforme o artigo 55, inciso VII da LGPD . ([(GUTIERREZ; MALDONADO; BLUM, 2020)], 453)
+
+Nos guias já realizados pela ANPD ou algum órgão Público da Administração Federal, destacam os seguintes guias:
+\begin{itemize}
+\item Guia de boas práticas para implementação na Administração Pública Federal: esse guia foi elaborado em agosto de 2020, no primeiro ano da ANPD, sendo bem exemplificativo ao explicar os direitos fundamentais dos titulares, e como realizar de forma correta o tratamento de dados pessoais, demonstrando as boas práticas de forma bem simples, direta e resumida, sendo constituída de um arcabouço legal para que a Administração Pública se preparar para a LPGD; 
+\item Guia de Elaboração de Programa de Governança em Privacidade: esse guia é referente a orientação na elaboração de Programa de Governança em Privacidade (PGP) por parte da Administração Pública Federal, servindo de implementação a boas práticas, e gerenciamento de segurança e riscos. O PGP se baseia no ciclo PCDA (Plan, Do, Check e Act) e as normas da série da ISO 27000. Sendo que esse guia foi dividido em 17 passos para as etapas do Programa de Governança em Privacidade;
+\item Guia de Elaboração de Inventário de Dados Pessoais: esse guia tem o objetivo de realizar o levantamento e registro dos dados pessoais tratados no âmbito institucional, sendo o registro das operações de tratamento dos dados pessoais, seguindo o artigo 37 da LGPD;
+\item Guia de Elaboração de Termo de Uso e Política de Privacidade para serviços públicos: trata-se de um documento com objetivo de estabelecer regras e condições para serviços executados pela Administração Pública Federal, utilizando o Termo de Uso;
+\item Guia de Avaliação de Riscos de Segurança e Privacidade: esse guia tem como finalidade elencar e fazer a avaliação de riscos, fazendo a análise através da matriz de risco, para que possa ser analisado e corrigidos os riscos, e também com a função para auxiliar na construção do relatório de impacto a dados pessoais (RIPD), e para entrar em conformidade legal com a LGPD;
+\end{itemize}
+
+\subsection{ RIPD – Relatório de Impacto à Proteção dos Dados Pessoais  }
+
+O Relatório de Impacto à Proteção dos Dados Pessoais (RIPD), também conhecido como RPIA (Data Protection Impact Assessment) na GDPR, teve previsão legal no artigo 5º. XVII, é uma das documentações mais importantes que o Encarregado e o controlador de dados pessoais devem elaborar e enviar para a ANPD conforme é dito no artigo 38 da LGPD. (BRASIL, 2018).
+
+Para elaborar o RIPD, deve ser instituído e elaborado antes de se iniciar o tratamento dos dados pessoais, conforme elenca o Guia de Boas Práticas, ideal na fase inicial. Conforme a figura elaborada pelo guia, demonstra o ciclo de fases para elaboração do RIPD:
+
+Na Figura \ref{fig: Iso } é possível visualizar as imagens obtidas neste protocolo.
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=6.0in]{Images/03ISO.jpeg}
+    \caption{Fonte ISACA BH Chapter Elaborado por Fernando Fonseca.}
+    \label{fig: Iso }
+\end{figure}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                      Capítulo 3                      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Trabalhos Relacionados}
+\label{ch: trabalhos relacionados}
+
+Neste capítulo são apresentados trabalhos relacionados com o tema de \textit{frameworks} da Lei Geral de Proteção de Dados. Foram utilizados como base de estudos realizados, levando ao entendimento de algumas etapas, conceitos e práticas metodológicas realizadas.
+
+O trabalho de (BLUM; VAINZOF; FABRETTI, 2020) contribuiu trazendo um trabalho teórico e prático a respeito do papel ativo e suas funções do DPO, o encarregado pelos dados pessoais. Abordando conceitos e ensinamentos para o processo de compliance com a LGPD. Conforme os autores salientam, a importância de um marco de privacidade, através de um framework é a forma de organizar determinado assunto de forma simples e didática, para possibilitar um melhor controle dos ativos e artefatos, podendo auxiliar na estruturação do programa de conformidade da organização.
+
+A estrutura deste trabalho é sólida, visto que foi constituída por especialistas sobre tecnologia e direito digital. Foram abordados conceitos que contribuíram para a elaboração do \textit{framework} proposto neste trabalho, como os ISOs 27001 e 27701, e do privacy by design, e apresentando outros \textit{frameworks} já consolidados no Brasil e mundialmente a respeito de proteção de dados e gestão de riscos, dentre eles se destacam:
+
+\begin{itemize}
+\item Framework NIST: O National Institute of Standards and Technology - NIST, é um framework de privacidade, com sua abordagem ao gerenciamento de risco à privacidade, se enfatizando, a importância da participação ativa dos cargos mais importantes na instituição, com os colaboradores entendendo sendo informados e treinados. ((BLUM; VAINZOF; FABRETTI, 2020), p.42). Dentre outras atribuições que esse framework remete aos cinco principais pilares: identificar, proteger, detectar, responder e recuperar; 
+\item OECD Guidelines on the Protection of Privacy and Transborder Flows od Personal Data: foi criado pela Organização para a Cooperação e Desenvolvimento Econômico (OCDE) visando padronizar e proteger a privacidade no compartilhamento internacional de dados pessoais entre os países membros;
+\item Generally Accepted Privacy Principles (GAPP): Foi consolidado no Canadá para mensurar a conformidade das organizações referentes ao cumprimento das legislações de proteção de dados do referido país. 
+\item p. 73
+\end{itemize}
+
+[(CARVALHO, 2021) elaborou o framework baseando-se em um estudo de caso para prevenção a fraude no contexto exclusivo de Big Data, com a proposta de acelerar projetos de Big Data para tratamento de dados voltados à prevenção a fraude em compliance à LGPD (p. 7), utilizando como uma das metodologias o Design Science Research (p. 7) 
+
+
+O trabalho do autor contribui para entendimento a respeito dos princípios da LGPD, os tipos de fraudes, conceitos de privacidade e ISO 27701 e a correlação com a LGPD (22), privacy by design, segurança da informação.
+
+O framework foi estruturado agregando-se ao ciclo PDCA, dividido em quatro fases principais que se encadeiam que são:
+
+\begin{itemize}
+\item Planejamento: Fase inicial, realizadas definições iniciais, como definição de políticas, processos, responsáveis, requisitos, modelos, etc.
+\item Desenvolvimento: Tal fase é a implementação dos dados, bases e estruturas, feito as análises e extração dos dados.
+\item Controle: Fase de monitoração e análise das validações, testes e verificações realizadas;
+\item Ação: Fase onde é feito a análise crítico, buscando melhorias e soluções contínuas.
+\end{itemize}
+
+\begin{figure}[ht]
+    \centering
+    \caption{Taxas de acurácia dos Métodos de Classificação.}
+    \includegraphics[width=5.0in]{Images/acc-classification.png}
+    \label{fig: grafico-acc}
+    
+    \centering \small Fonte: Autor.
+\end{figure}
+
+Para a efetiva validação do framework, (CARVALHO, 2021)utilizou dois projetos de ingestão de dados em Big Data, sendo que no primeiro projeto, a ingestão de dados foi sem observar as boas práticas elaboradas pelo framework, e no segundo projeto foi objetivando o framework. Para fazer o processamento dos projetos, o autor utilizou da ferramenta Apache Hadoop, e por fim extrair métricas de performance.
+
+O trabalho de [(MENEGAZZI, 2021)] propõem como framework um guia dividido em 6 etapas para o compliance com a LGPD. Sendo durante o trabalho o autor elabora a engenharia de requisitos da proposta de dissertação, conforme a figura X abaixo: 
+
+\begin{figure}[ht]
+    \centering
+    \caption{Taxas de acurácia dos Métodos de Classificação.}
+    \includegraphics[width=5.0in]{Images/acc-classification.png}
+    \label{fig: grafico-acc}
+    
+    \centering \small Fonte: Autor.
+\end{figure}
+
+E as 6 etapas do guia foram divididas conforme as listas abaixo:
+\begin{itemize}
+\item Auditoria de Dados: É a primeira etapa, onde é realizado o mapeamento inicial dos dados, analisar quais dados a organização está tratando, quais categorias são só dados, se estão sendo compartilhados, como estão sendo armazenados, coletados e manipulados, sendo esse processo realizado através de uma entrevista com o responsável pela manipulação dos dados.
+\item Análise de Lacunas: Essa segunda etapa é feita a análise das informações obtidas na primeira etapa, com objetivo de identificar passos como (fluxos, processos, requisitos) que precisam ser melhorados por ações corretivas e/ou preventivas. Também nessa etapa, foi elaborado um questionário para analisar possíveis violações dos princípios da LGPD
+\item Planejamento e Preparação: Nesta terceira etapa, o objetivo é solucionar problemas que surgiram na segunda etapa, e para corrigir as violações aos princípios, o autor elabora requisitos de negócio para alterações as violações de princípios, dividido em descrição do problema, problema resolvido e o benefício em resolver o problema. 
+\item Revisão do Plano de Ação: Essa quarta etapa, conforme o autor descreve, é importante que os stakeholders revisem o plano de ação elaborado na terceira fase, e se as mudanças impactaram o funcionamento do negócio.
+\item Execução: A quinta etapa, as análises sugeridos na quarta etapa, devem estar prontos para que as soluções sejam implementadas. Nessa etapa, é necessário o conhecimento profundo de profissionais como o Encarregado, que deve ter conhecimentos sobre segurança e privacidade, com os demais profissionais da equipe para fazer a implementação.
+\item Revisão Pós-implementação: por fim, essa é a última etapa, onde o encarregado e o controlador dos dados deverão garantir que todos os requisitos de conformidade com a LGPD foram atendidos.
+\end{itemize}
+
+O autor também descreveu a respeito sobre requisitos de negócios, também denominado como Regras de Negócio, atrelando os referidos requisitos aos princípios e artigos da LGPD, conforme a figura X. Por fim, avaliando o guia proposto, com um questionário de avaliação via Google Forms, respondido por pessoas de diversas áreas, e como resultado do trabalho realizado e também de modo para facilitar a proposta do guia, o autor criou um website com vídeos explicativos e etapas do guia de conformidade.
+
+\begin{figure}[ht]
+    \centering
+    \caption{Taxas de acurácia dos Métodos de Classificação.}
+    \includegraphics[width=5.0in]{Images/acc-classification.png}
+    \label{fig: grafico-acc}
+    
+    \centering \small Fonte: Autor.
+\end{figure}
+
+O framework proposto por ([(ZINI, 2020)]) se baseou incialmente em 3 passos para o tratamento de dados pessoais. Na primeira parte, a autora dividiu em três passos o tratamento de dados pessoais:
+
+\begin{itemize}
+\item Identificar nomenclaturas de tratamento de dados: nessa primeira parte, a autora coloca para ao fazer o processo de compliance com a LGPD, o primeiro passo seja analisar os principais verbos da lei referentes a tratamento de dados, sendo (acesso, armazenamento, arquivamento, avaliação, classificação, coleta, comunicação, controle, difusão, distribuição, eliminação, extração, modificação, processamento, produção, recepção, reprodução, transferência, transmissão, utilização)
+\item Finalidade, clareza e propósitos específicos: nesse passo, a autora enfatiza a importância de se certificar que a operação cumpre sua finalidade e que o titular de dados foi informado de forma clara e objetiva os propósitos para o tratamento de seus dados.
+\item 10 princípios e 10 hipóteses: no terceiro passo, a autora se baseia no artigo 6º que é referente aos 10 os princípios de tratamento de dados e o artigo 7º das hipóteses de tratamento de dados pessoais.
+\end{itemize}
+
+Na segunda parte do framework, a autora elenca os riscos envolvidos devido a não adequação a LGPD, presentes no artigo 52 da LGPD, sendo que, ela elencou alguns dos riscos para o negócio, como é o caso das sanções da LGPD.
+
+Na terceira parte do framework, a autora descreve a respeito da mitigação de riscos das empresas, partindo da segurança da informação, descrita de forma esquematizada os principais artigos dentro da LGPD referente a SI, presentes no artigo 6º, 44º, 46 e 47 da LGPD, sendo um ponto de atenção, para que as empresas possam estar atentos e corrigir as mazelas, enfatizando os passos de implementação (preparação, mapeamento, avaliação, planejamento, execução, monitoramento).
+
+O framework proposto pela autora foi baseado em John Latam, cujo objetivo da autora, é cobrir os requisitos e artigos da LGPD, aplicando boas práticas de governança e segurança dos dados, onde o resultado ficou esquematizado da seguinte forma:
+
+\begin{figure}[ht]
+    \centering
+    \caption{Taxas de acurácia dos Métodos de Classificação.}
+    \includegraphics[width=5.0in]{Images/acc-classification.png}
+    \label{fig: grafico-acc}
+    
+    \centering \small Fonte: Autor.
+\end{figure}
+
+[(SILVA, 2020)] desenvolveu uma proposta de framework para proteção de dados com o objetivo de implementar dentro de uma instituição de ensino superior. O autor elencou em seu trabalho a governança da tecnologia da informação nas instituições de ensino superior, juntamente trazendo a respeito da estrutura de governança de TI chamada COBIT (Control Objectives for Information and related Technology), na sua versão 5, visando desenvolver ferramentas para fortalecer negócios e a TI, e também os riscos de segurança, como governança de risco e política de risco, elencando a ISO 31000.
+
+Além do framework COBIT 5, o autor elenca outro importante framework que é o COSO-ERM, que possui cinco pilares fundamentais e vinte princípios, tendo o objetivo de facilitar a aplicação para análise e desenvolvimento em atividades de gerenciamento de riscos da organização.
+
+\begin{figure}[ht]
+    \centering
+    \caption{Taxas de acurácia dos Métodos de Classificação.}
+    \includegraphics[width=5.0in]{Images/acc-classification.png}
+    \label{fig: grafico-acc}
+    
+    \centering \small Fonte: Autor.
+\end{figure}
+
+
+A metodologia de pesquisa utilizada para a construção do framework foi da elaboração a de uma pesquisa intervencionista. Por fim, utilizando das metodologias COSO, COBIT, ISO 31000 e a LGPD, o resultado para o plano de adequação esquematizado foi como demonstra a figura X: 
+
+
+\begin{figure}[ht]
+    \centering
+    \caption{Taxas de acurácia dos Métodos de Classificação.}
+    \includegraphics[width=5.0in]{Images/acc-classification.png}
+    \label{fig: grafico-acc}
+    
+    \centering \small Fonte: Autor.
+\end{figure}
+
+[(SILVA, 2020), 69] Plano de adequação a LGPD
+A metodologia de avaliação do autor para medir a eficiência do framework foi através de avaliação com questionários. E as fases de adequação do framework proposto pelo autor se dividiu em 5 fases, conforme visível na imagem abaixo: 
+
+\begin{figure}[ht]
+    \centering
+    \caption{Taxas de acurácia dos Métodos de Classificação.}
+    \includegraphics[width=5.0in]{Images/acc-classification.png}
+    \label{fig: grafico-acc}
+    
+    \centering \small Fonte: Autor.
+\end{figure}
+
+Nesse trabalho, [(SILVA, 2021) ] construiu um framework para a implementação da LGPD no setor químico. No processo metodológico de construção do framework, o autor começou a fazer a análise bibliográfica de artigos e documentos em bases científicas, e como avaliação e resultados foi enviado um questionário para 973 fábricas de produtos químicos no Brasil.
+
+O framework para implementação da LGPD criado pelo autor se baseou inicialmente as leis de privacidade mais populares no Brasil, GDPR, CCPA e LGPD, e outras ISO e frameworks existentes, tendo como resultado um framework em cinco fases, conforme a figura abaixo:
+
+\begin{figure}[ht]
+    \centering
+    \caption{Taxas de acurácia dos Métodos de Classificação.}
+    \includegraphics[width=5.0in]{Images/acc-classification.png}
+    \label{fig: grafico-acc}
+    
+    \centering \small Fonte: Autor.
+\end{figure}
+
+
+\begin{itemize}
+\item Iniciação: Nessa primeira fase, o autor elenca a importância do conhecimento da alta gestão da empresa em conhecer o processo de adequação a LGPD, e com o objetivo do conhecimento de todos os colaboradores da empresa, o cargo mais alto, que no caso seria o CEO ou presidente da organização deverá comunicar a empresa e seus colaboradores, e também internamente e externamente sobre o início do processo de adequação. E também a criação de uma carta com o breve histórico da organização, abordando a necessidade de conformidade, e também elencar a equipe responsável pelo plano de conformidade com a LGPD, criando o comitê de governança de dados, e destinando um responsável por ele, tendo o papel contínuo de melhoria. Esse comitê será composto por pessoas de dentro da organização, que tenha conhecimento sobre atividades de setores ou departamentos, além do conhecimento sobre privacidade, governança e segurança. E por fim, nessa primeira fase o treinamento em proteção e privacidade de dados para os membros do comitê.
+\item  Conhecimento: Na segunda fase, são feitas análises internas de processos e fluxos de informações e dados na empresa. Analisando como a organização recebe os dados, faz o tratamento e armazenamento, e quem tem acesso a esses dados. Fazendo uma lista para saber como as informações são recebidas e armazenadas, o autor, efetua cinco perguntas principais que são: quem envia informações pessoais para a empresa?; como a empresa recebe dados pessoais?; em cada entrada que categoria de dados pessoais é coletado?; em cada entrada, como é armazenado os dados pessoais?; e por fim, quem tem ou poderia ter acesso aos dados pessoais coletados?; desenhando por fim, um fluxo de dados.
+\item Desenvolvendo uma planilha exemplo do levantamento de dados pessoais.
+\item Validação: O autor, nessa terceira fase, depende que a segunda fase esteja finalizada para dar prosseguimento ao processo de conformidade. Na fase de validação, o autor desenvolveu um questionário com indagações a serem respondidas a respeito do processamento se está sendo processado de forma justa e legal?; se os propósitos estão especificados, quais as finalidades; a respeito da relevância dos dados, se são relevantes e não tem excesso em relação à finalidade; a precisão dos dados, se os dados se mantêm inviolados; a retenção dos dados, se os dados não são mantidos mais tempo que o necessário; o processamento justo, onde os dados são tratados consoante os direitos dos titulares de dados conforme a LGPD, e por último, a responsabilização, se são tomadas e executadas medidas técnicas e organizacionais para adequação da LGPD contra o processamento não autorizado ou ilegal, e também contra perdas, destruição ou dano de dados pessoais.
+\item De modo, conforme elenca o autor [(SILVA, 2021).68], a executar uma auditoria inicial e uma avaliação da proteção de dados dentro da empresa. Identificando os riscos de proteção. Também efetuar análise de impacto na privacidade de dados, com os riscos à privacidade e os riscos oriundos da não privacidade, juntamente com os riscos que podem causar danos na reputação e possíveis perdas que impactam o negócio.
+\item Desenvolvimento: nessa penúltima fase, as etapas fundamentais que o autor descreve são o de realizar a comunicação e treinamento para todos os colaboradores da empresa em relação à proteção de dados, juntamente com um plano de treinamento interno, contendo a estratégia e o plano de conscientização, refletir a natureza da organização e sua missão, e descrever estratégias para alcançar a proteção de dados e privacidade da organização. Também será nessa fase que serão desenvolvidos a matriz de responsabilidade, as políticas de segurança de dados pessoais, além da importância em documentar os fluxos de dados internos e externos da organização, fluxograma com processos e etapas, e o plano de ações.
+\item Encerramento: a última etapa é a consolidação de todas as etapas anteriores, conforme descreve o autor, o resultado obtido é utilizado para a criação do relatório de análise de proteção de dados, com o sistema de fluxo de dados, as políticas de proteção de dados e documentos com o nível de conformidade da organização.
+\end{itemize}
+
+Sendo gerado como resultado de analises levantamentos de requisitos dos dados conforme a figura X:
+
+\begin{figure}[ht]
+    \centering
+    \caption{Taxas de acurácia dos Métodos de Classificação.}
+    \includegraphics[width=5.0in]{Images/acc-classification.png}
+    \label{fig: grafico-acc}
+    
+    \centering \small Fonte: Autor.
+\end{figure}
+
+Como resultado final do framework, foi construído um quadro utilizando a metodologia Kanban no Trello, utilizando cards com as tarefas a serem realizadas e desenvolvidas. Conforme a imagem abaixo, temos o resultado final do framework, onde foi feito a gestão do projeto de conformidade do autor:
+
+\begin{figure}[ht]
+    \centering
+    \caption{Taxas de acurácia dos Métodos de Classificação.}
+    \includegraphics[width=5.0in]{Images/acc-classification.png}
+    \label{fig: grafico-acc}
+    
+    \centering \small Fonte: Autor.
+\end{figure}
+
+Feito o estudo dos trabalhos relacionados que foram uteis para o estudo bibliográfico e construção do framework proposto nesse trabalho, podemos construir um quadro comparativo entre os trabalhos correlatos e o presente trabalho, com os principais diferencias.
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                      Capítulo 4                      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Metodologia}
+\label{ch: materiais e métodos}
+
+Neste capítulo, são discutidos os materiais e métodos utilizados ao longo do desenvolvimento deste projeto. Materiais e métodos esses que foram utilizados ferramentas e softwares gratuitos que permitiram o bom desenvolvimento e manutenção do presente trabalho.
+Nas subseções são apresentados os materiais utilizados, como a modelagem do banco de dados, requisitos de negócios, arquitetura de sistema e a construção do framework. A partir de etapas da engenharia de software e modelagem de requisitos foram estipulados os diagramas que auxiliaram na construção desse projeto.
+Para o desenvolvimento do software do framework de implementação a LGPD do referido trabalho foi baseado nos conhecimentos adquiridos ao decorrer da graduação de Ciência da Computação.
+
+
+\section{Materiais}
+
+A metodologia para a escrita foi através da realização de revisões a respeito da temática e análise por pesquisa bibliográfica. Proveniente de livros, periódicos acadêmicos, e conteúdo em sites da internet. (ABRANTES, ANO)p.16
+
+Buscando-se por principais trabalhos relacionados a implementação da LGPD, posteriormente dissertações relacionadas ao tema de framework de conformidade da referida lei. Sendo procurado artigos dos anos de 2018 até 2022 nas bases da Capes, Oasis-Br e Google Acadêmico. 
+
+Os artigos e livros encontrados foram analisados e feito o fichamento, posteriormente, classificando quais seriam benéficos para as fundamentações e desenvolvimento deste trabalho.
+
+\section{Requisitos de negócios}
+
+Conforme descreve (VAZQUEZ; SIMÕES, 2016) p.125, requisitos (ou necessidades) de negócios são “declarações de mais alto nível de objetivos, metas ou necessidades da organização”.  Os motivos pelo qual o projeto está sendo iniciado serão descritos neste documento. Visto que, conforme elenca   (VAZQUEZ; SIMÕES, 2016), as necessidades de negócios têm o objetivo de resolver problemas ou aproveitar futuras oportunidades, mantendo condições atuais para futuras alterações.
+
+O levantamento de requisitos de negócios foi essencial para elucidar e nortear a viabilidade e ver quais requisitos deveriam ser priorizados no sistema a ser desenvolvido as partes de regra de negócio, e os requisitos fundamentais e não fundamentais deste trabalho. Algumas das perguntas elencadas foram:
+
+\begin{itemize}
+\item “Quais as principais funções do sistema?”
+\item “Qual é o público alvo?”
+\item “Quantos atores terá o sistema?”
+\item “Quais os requisitos fundamentais?”
+\item “Como desenvolver um sistema de boa experiência para o usuário?”
+\end{itemize}
+
+Para construção do framework foi realizado o análise da engenharia de requisitos, sendo feitos as regras de negócio, os requisitos funcionais e requisitos não funcionais do sistema web proposto. Feito essas análises foi possível ter a visão ampla das usabilidades de cada parte do sistema e documentar para futuras implementações.  As regras de negócio juntamente com os requisitos funcionais e não funcionais estão no disponíveis no Github do projeto através do link: LINK DO GITHUB
+
+As regras de negócio têm o objetivo de documentar as regras que são aplicáveis ao negócio e que direcionaram aos casos de uso. Como visto em (VAZQUEZ; SIMÕES, 2016) p . 160, as regras de negócio devem ser tratadas como ativo organizacional e em (WAZLAWICK, 2013) p. 96) são declarações e condições que devem ser satisfeitas.
+
+Em (VAZQUEZ; SIMÕES, 2016) p.150, os requisitos funcionais devem ser descritos os comportamentos que o software tem em razão das tarefas ou serviços de usuários. Conforme descrito por S(SOMMERVILLE, 2011) 75, “os requisitos funcionais de um sistema descrevem o que ele deve fazer”, e o mesmo autor descreve que tais requisitos devem fornecer previsões de ações no sistema, como reagir a entradas específicas e se comportar em determinadas situações, também explicando o que o sistema não deve fazer.
+
+Abaixo alguns exemplos de requisitos funcionais do framework proposto no anexo x.
+\begin{itemize}
+\item O sistema não deve permitir acessos não autorizados;
+\item O sistema deverá ter hierarquia de acessos;
+\item O sistema deve permitir que usuários respondam o questionário.
+\end{itemize}
+
+Os requisitos não funcionais como visto em (VAZQUEZ; SIMÕES, 2016)p.162 descreve limitações como relacionadas ao ambiente, como segurança, privacidade e sigilo, a organização, a implementação e por fim, a qualidade. descrito por (SOMMERVILLE, 2011)76 “não estão diretamente relacionados com serviços específicos oferecidos pelo sistema a seus usuários.”. E conforme (VAZQUEZ; SIMÕES, 2016)p.149, descrevem qualidades que o produto deve observar para o funcionamento, podendo estão relacionadas a confiabilidade, tempo de resposta, desempenho, segurança, etc.
+
+Listado abaixo, alguns exemplos de requisitos não funcionais do framework:
+
+\begin{itemize}
+\item O sistema web deve ser responsivo, permitindo ser utilizado e visualizado em qualquer aparelho móvel;
+\item Deve utilizar para armazenamento o banco de dados em MySQL;
+\item O sistema de questionário deve ser feito utilizando Javascript e PHP;
+\end{itemize}
+
+\section{Casos de Uso e Diagrama de casos de uso}
+
+O conceito de caso de uso trata-se de uma modelagem UML (unified modeling language), que serve para documentações (SOMMERVILLE, 2011). Sendo conceituado como um conjunto de passos que ilustra um cenário principal e também possíveis cenários para que um ator possa objetivamente usar o sistema. Conforme (VAZQUEZ; SIMÕES, 2016) p. 399, o diagrama de caso de uso “ilustra graficamente os casos de uso suportados por um sistema, os atores que interagem com estes e os relacionamentos entre os casos de uso e os atores”.
+
+Graficamente o diagrama de caso de uso tem os seguintes elementos básicos, conforme em (VAZQUEZ; SIMÕES, 2016) p.338:
+
+\begin{itemize}
+\item Ator: representará uma pessoa ou grupo de pessoas que atuaram com o papel de interagir com o software. Podendo o ator ser ativo ou passivo, sendo ativo quando o ator inicia a execução do caso de uso. E será passivo quando o caso de uso não é iniciado pelo autor, reagindo pelas ações do sistema.
+\item Caso de uso: será as funcionalidades que atende a um ou mais requisitos do cliente. Como padrão sugere-se a usar os verbos das ações dos casos de uso no infinitivo, sendo representado por uma elipse com a ação escrita.
+\item Relacionamento: é quando um ator interage com um caso de uso, representando um relacionamento que podem ser generalização, extensão ou inclusão.
+\end{itemize}
+
+A importância de se utilizar os casos de uso na construção de um software, está na importância de se documentar e também ajudar no entendimento dos requisitos funcionais do sistema (FOWLER, 2007) p. 108. Na construção do caso de uso, primeiramente deve se definir quais eram os conjuntos de autores e como eles se relacionam com o sistema, suas atribuições e funções. (PRESSMAN, 2011) p.138
+
+Para esse trabalho, o diagrama de caso de uso foi construído pelo software Astah, onde foi feito dois atores principais, o DPO e a empresa que terá o processo de conformidade, abaixo a figura 2 do diagrama de caso de uso construído:
+
+\begin{figure}[ht]
+    \centering
+    \caption{Taxas de acurácia dos Métodos de Classificação.}
+    \includegraphics[width=5.0in]{Images/acc-classification.png}
+    \label{fig: grafico-acc}
+    
+    \centering \small Fonte: Autor.
+\end{figure}
+
+\section{Arquitetura do sistema}
+
+O modelo arquitetural de construção de software adotado para o projeto foi o padrão de projeto MVC (model, view, controller), em tradução para o português significa: modelo, visão e controlador. Conforme definido por (GAMMA et al., 2007)p. 20, que a respeito do MVC diz:  “Modelo é o objeto de aplicação, a Visão é a apresentação na tela e o Controlador é o que define a maneira como a interface do usuário reage às entradas do mesmo”.
+
+\begin{figure}[ht]
+    \centering
+    \caption{Taxas de acurácia dos Métodos de Classificação.}
+    \includegraphics[width=5.0in]{Images/acc-classification.png}
+    \label{fig: grafico-acc}
+    
+    \centering \small Fonte: Autor.
+\end{figure}
+
+São camadas que auxiliam para facilitar na manutenção, reuso de códigos em outros projetos. Model será a camada destinada a modelar as entidades do sistema e manipulação com o banco de dados, responsável pela leitura e escrita de dados. View servirá para exibição de dados da interface, permitindo a interação do usuário com o sistema, sendo as informações exibidas em tela. E a camada Controller será responsável por controlar e interpretar as informações recebidas e requisições feitas pelo usuário, também responsável pela integração com as camadas Model e View. (WAZLAWICK, 2013) p. 308.
+
+O objetivo de se utilizar essa arquitetura de sistema é que ela é simples, facilitando na utilização da linguagem PHP e Javascript a fazerem as utilizações corretas das camadas, não tendo muitos requisitos de utilização comparado a outros padrões de projetos.
+
+\section{Desenvolvimento do sistema}
+
+Nessa seção serão expostos às técnicas e ferramentas utilizadas durante o desenvolvimento do sistema. Abordando-se o passo-a-passo para construção do projeto, começando pelos requisitos de sistema gerados e a parte de desenvolvimento começando pelo backend,  e por fim o frontend das interfaces da aplicação. 
+
+O conhecimento adquirido ao decorrer de pesquisas, graduação, cursos on-line, contribuíram para o bom entendimento e desenvolvimento da aplicação.
+
+
+\section{Tecnologias e ferramentas utilizadas}
+
+A construção do sistema proposto, não houve impedimento para o sistema operacional a ser utilizado, visto que as linguagens utilizadas PHP e Javascript são abertas para uso. Também, optou-se por utilizar ferramentas open source e gratuitas, visto que o sistema é de pequena escala, não havendo necessidade de utilizar complexidades como a utilização de Docker, AWS Lambda, ou outros.
+
+Para a codificação, foi utilizado o editor de código Visual Studio Code da empresa Microsoft, sendo um editor gratuito. Na utilização da linguagem PHP foi necessário a instalação da ferramenta Xampp, sendo um pacote que permite utilizar funcionalidades do Apache e para banco de dados o PHPMyAdmin. Como controle de versões do código foi utilizado a ferramenta GIT e a plataforma Github para hospedar os códigos e diagramas realizados. Por fim, na linguagem Javascript necessitou de se utilizar o Node.Js para a utilização de pacotes como o NPM para instalação de pacotes de dependência.  
+
+\section{Backend}
+
+O backend é o nome dado ao desenvolvimento relacionado à execução de códigos voltado aos servidores, sendo a programação e informação por trás das aplicações desenvolvidas voltadas ao banco de dados, autenticação de usuários, logs, requisições e respostas de acessos das API’s da aplicação, procedimentos de busca, etc., são aplicações que não podem ser vistos pelo usuário.
+
+O backend é responsável em manter as regras de negócio de uma aplicação, como um simples exemplo, seria o encarregado em fazer o controle de acesso de usuários, verificando se a senha está correta ou incorreta.
+
+A construção do backend foram feitas em módulos, sendo a parte de PHP ficou responsável pelo gerenciamento do sistema de questionário do framework de implementação. Foi utilizado para sistema de gerenciamento de banco de dados o MySQL Workbench para a diagramação do banco de dados, entretanto foi também utilizado o PHPMyAdmin para a utilização em ambiente de produção.
+
+A modelagem do banco de dados ficou conforme a figura abaixo:
+
+\begin{figure}[ht]
+    \centering
+    \caption{Taxas de acurácia dos Métodos de Classificação.}
+    \includegraphics[width=5.0in]{Images/acc-classification.png}
+    \label{fig: grafico-acc}
+    
+    \centering \small Fonte: Autor.
+\end{figure}
+
+\section{Frontend}
+
+O frontend é responsável por interpretar as informações vindas do servidor e demonstrar visualmente para o usuário. Em resumo, é a parte visual de um sistema, onde se utilizam elementos gráficos que permitem ao usuário interagir com os elementos dispostos em tela.
+
+Atualmente, o Javascript é uma linguagem que está em grande tendência visto que pode ser reutilizada em vários projetos, podendo ser usada tanto na camada do servidor com o Node Js, tanto em partes visuais com os frameworks Angular, React e Vue, dentre outros. A vantagem de se utilizar dependências e bibliotecas que são constantemente atualizadas, permitindo uma escalabilidade muito grande nos projetos.
+
+Para esse trabalho, foi escolhido o framework React, para a construção do guia de orientação de implementação da LGPD. Visto que o React permite o uso de muitas dependências de alto desempenho, a grande comunidade de desenvolvedores no Brasil e o reuso de códigos que pode ser usado para construções híbridas ou mobile com React Native.
+
+Foi desenvolvido uma tela (figura 3) que mostra como vai ser o painel ao final do desenvolvimento, um painel onde mostrará o score da empresa, juntamente com as etapas que faltam para serem feitas.
+
+\begin{figure}[ht]
+    \centering
+    \caption{Taxas de acurácia dos Métodos de Classificação.}
+    \includegraphics[width=5.0in]{Images/acc-classification.png}
+    \label{fig: grafico-acc}
+    
+    \centering \small Fonte: Autor.
+\end{figure}
+
+\section{Construção do framework}
+
+
+Visto os trabalhos relacionados que auxiliaram ao entendimento de projetos com a mesma linha de pensamento, foi construído o framework conceitual. 
+
+o accusata vituperatoribus, ut sint iracundia nec?
+
+Eam purto posse repudiare id! Graeco pericula definiebas eu per, an per oratio fastidii expetenda. Ei natum noluisse disputando mei, eos in porro dignissim elaboraret? Ius id rebum (Equação \ref{eq: kernel svm}).
+\begin{equation}
+\label{eq: kernel svm}
+    c = \frac {1} {\textit{nf}}
+\end{equation}
+
+Lorem ipsum dolor sit amet, clita assueverit accommodare at mei, eos ea amet adhuc? Vim justo nulla et, etiam sententiae in duo! Simul sanctus vel ad! Ad sed perpetua posidonium, ne pri sint facer reprimique, dico voluptua pro ex. Ut laoreet definitiones quo, te justo veniam dolorum his? Partem semper postulant in sea, nam tation civibus apeirian cu.
+
+Eam purto posse repudiare id! Graeco pericula definiebas eu per, an per oratio fastidii expetenda. Ei natum noluisse disputando mei, eos in porro dignissim elaboraret? Ius id rebum.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                      Capítulo 5                      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Resultados}
+\label{ch: resultados} 
+
+Explicar a respeito do desenvolvimento (tabela comparativa/ eu mesmo avalio)
+outro ponto seria com empresas
+
+\subsection{Avaliação e validação do framework}
+
+Latine ornatus voluptaria et quo, altera vocent habemus vel ad, eum adipisci atomorum at! Ne qui posidonium comprehensam, cu pro quas delicata? Nominati molestiae appellantur id nam. Has omnes oratio ut, tation dictas sed cu.
+
+Sea te quando salutatus, in mel torquatos voluptatibus, ei purto ignota latine sea. Et sumo fastidii eligendi mel, cu justo mnesarchum mei. Mei quando evertitur aliquando at, ei eripuit placerat antiopam mel, vix delicata mediocrem ea? Mea fugit volumus ut, ei utinam pertinax conceptam vis. Agam pertinax mediocrem et vel.
+
+
+ 
+\section{Resultados do Método}
+\label{sec: resultados}
+
+Lorem ipsum dolor sit amet, clita assueverit accommodare at mei, eos ea amet adhuc? Vim justo nulla et, etiam sententiae in duo! Simul sanctus vel ad! Ad sed perpetua posidonium, ne pri sint facer reprimique, dico voluptua pro ex. Ut laoreet definitiones quo, te justo veniam dolorum his? Partem semper postulant in sea, nam tation civibus apeirian cu.
+
+Latine ornatus voluptaria et quo, altera vocent habemus vel ad, eum adipisci atomorum at! Ne qui posidonium comprehensam, cu pro quas delicata? Nominati molestiae appellantur id nam. Has omnes oratio ut, tation dictas sed cu.
+
+
+Eam purto posse repudiare id! Graeco pericula definiebas eu per, an per oratio fastidii expetenda. Ei natum noluisse disputando mei, eos in porro dignissim elaboraret? Ius id rebum.
+\begin{figure}[ht]
+    \centering
+    \caption{Taxas de acurácia dos Métodos de Classificação.}
+    \includegraphics[width=5.0in]{Images/acc-classification.png}
+    \label{fig: grafico-acc}
+    
+    \centering \small Fonte: Autor.
+\end{figure}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                      Capítulo 6                      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \chapter{Conclusão}
+ \label{ch: conclusao}
+ O framework traz inúmeros benefícios às empresas usuárias que necessitam entrar em conformidade, fazendo com que a organização possa entrar em conformidade com a LGPD, bastando que o DPO, o encarregado, siga o passo a passo do framework exposto neste trabalho. O Dados LGPD é uma ferramenta acessível, com telas de fácil experiência do usuário, fomentando o uso de forma intuitiva, dando um relatório detalhado do percentual do score de conformidade. Conforme apresentado no presente trabalho, foi utilizado as ferramentas NodeJS, React JS, Next JS, React Native com objetivo de usar todo o potencial que o Javascript pode proporcionar, como a escalabilidade, facilidade de modificação, atualização, evolução do software, reaproveitamento de código através da arquitetura MVC, e as dependências desses framework sempre são atualizados, sendo uma grande vantagem. Com a utilização da ferramenta de framework gerada nesse trabalho, poderá fazer com que as empresas façam todo o compliance, adequando se a lei, e evitando tomar multas que podem desestabilizar a empresa.
+
+Trabalhos futuros serão importantes e valorosos, para mostrar o andamento com o tempo e a aplicação da lei. O Framework DadosLGPD desempenha um papel fundamental para evitar que empresas usem dados pessoais de forma ilegítima de seu banco de dados, e por fim garantindo a privacidade e segurança de seus usuários.
+
+
+Lorem ipsum dolor sit amet, clita assueverit accommodare at mei, eos ea amet adhuc? Vim justo nulla et, etiam sententiae in duo! Simul sanctus vel ad! Ad sed perpetua posidonium, ne pri sint facer reprimique, dico voluptua pro ex. Ut laoreet definitiones quo, te justo veniam dolorum his? Partem semper postulant in sea, nam tation civibus apeirian cu.
+
+Latine ornatus voluptaria et quo, altera vocent habemus vel ad, eum adipisci atomorum at! Ne qui posidonium comprehensam, cu pro quas delicata? Nominati molestiae appellantur id nam. Has omnes oratio ut, tation dictas sed cu.
+
+At aliquando inciderint qui, sea nusquam vituperatoribus te! Eum eu doctus detracto vituperatoribus, id cum dicam verear. Pro in modus justo, his cu aliquip ponderum, nulla audire ornatus ut eum. Libris viderer nam ut, his ei adhuc animal ocurreret. Elit appareat est no, assueverit vituperatoribus ut duo!
+
+Pri cu oblique facilis pertinax, alia paulo officiis sed ad. Qui zril noster an, sed cu primis veritus scribentur. Qui persecuti complectitur ad, pro dicta impetus at? Sed lorem ocurreret reprimique ut, pro at iudicabit democritum.
+
+Ut autem sonet est, eam ne imperdiet assentior? Usu oporteat urbanitas an, vivendo patrioque intellegebat eu qui, tacimates democritum eu quo. No facilis vivendo perfecto has. Ne veniam dolorem nec, saperet dolorem no qui. Eu nisl delicata reformidans qui. Admodum menandri reprehendunt et mel, eum ut purto prompta.
+
+Mucius oblique expetendis vim ad, pertinacia expetendis ad his? Et pro vidit dolore libris, sale cetero ut nam. His placerat indoctum volutpat et. Sea in fugit maiorum, per eu cibo vivendo delicata! Ut nec dico intellegat.
+
+
+
+Eam purto posse repudiare id! Graeco pericula definiebas eu per, an per oratio fastidii expetenda. Ei natum noluisse disputando mei, eos in porro dignissim elaboraret? Ius id rebum.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                      REFERÊNCIAS                     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% ---
+% Finaliza a parte no bookmark do PDF, para que se inicie o bookmark na raiz
+% ---
+\bookmarksetup{startatroot}% 
+% ---
+
+% ---------------------------------------------------------------------------------------------
+% ELEMENTOS PÓS-TEXTUAIS
+% ---------------------------------------------------------------------------------------------
+\postextual
+
+
+% ---------------------------------------------------------------------------------------------
+% Referências bibliográficas
+% ---------------------------------------------------------------------------------------------
+\bibliography{abntex2-modelo-references}
+
+% ---------------------------------------------------------------------------------------------
+% Glossário
+% ---------------------------------------------------------------------------------------------
+%
+% Consulte o manual da classe abntex2 para orientações sobre o glossário.
+%
+%\glossary
+
+% ---------------------------------------------------------------------------------------------
+
+% Anexos
+% ---------------------------------------------------------------------------------------------
+
+% ---
+% Inicia os anexos
+% ---
+%\begin{anexosenv}
+
+% Imprime uma página indicando o início dos anexos
+%\partanexos
+
+%\chapter{Protocolo de Aquisição de Imagens}
+
+%\end{anexosenv}
+
+% ---------------------------------------------------------------------------------------------
+% INDICE REMISSIVO
+% ---------------------------------------------------------------------------------------------
+
+\printindex
+
+\end{document}
