@@ -401,7 +401,7 @@ The General Data Protection Law, popularly known as LGPD, is the result of law 1
     \item[CGD] Comitê Central de Governança de Dados
     \item[CRUD] \textit{Create, Read, Update e Delete}
     \item[DPO] \textit{Data Protection Officer}
-    \item[GDPR]  General Data Protection Regulation
+    \item[GDPR] \textit{ General Data Protection Regulation}
     \item [JS] \textit{Javascript}
     \item[LGPD] Lei Geral de Proteção de Dados
     \item[MVC] \textit{Model, Vision, Controller}
@@ -486,43 +486,59 @@ Este trabalho está organizado da seguinte maneira. No Capítulo \ref{ch: fundam
 \chapter{Fundamentação Teórica}
 \label{ch: fundamentacao teorica}
 
-Neste capítulo, serão apresentados os conceitos teóricos fundamentais para entendimento da LGPD e também para um bom entendimento deste trabalho. Sendo abordados os tópicos teóricos a respeito do que tange a sua origem da referida lei, os conceitos fundamentais, os tipos de dados, pessoas envolvidas na LGPD, e facilitando a compreensão da proposta de \textit{framework} a ser desenvolvido nesse trabalho.
+%02-00-Revisto[OK]
+
+Neste capítulo, serão apresentados os conceitos teóricos fundamentais para entendimento da LGPD e também para o bom entendimento deste trabalho. Sendo abordados os tópicos teóricos a respeito do que tange a sua origem da referida lei, os conceitos fundamentais, os tipos de dados, pessoas envolvidas na LGPD, e facilitando a compreensão da proposta de \textit{framework} a ser desenvolvido nesse trabalho.
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %                      2.1                              %
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Origem da Lei Geral de Proteção de Dados }
 \label{sec: exemplo}
 
+%02-01-01-Revisto[OK]
 A Lei Geral de Proteção de Dados (LGPD) é  um grande avanço do marco legal tecnológico refente a proteção e privacidade de dados pessoais. Reflexo de grandes mudanças sociais e econômicas vigentes no Brasil em um período digital, visando a respeito dos tratamentos de dados pessoais, tendo sua origem através do projeto de lei complementar n.º 53/2018, e depois surgindo através da lei n.º 13.709 \cite{01-01-LeiGeral}. 
 
-A LGPD tem parte do seu texto legal fortemente baseado na lei europeia denominada \textit{General Data Protection Regulation} (\textit{GDPR}), que entrou em vigor na União Europeia em 2018 \cite{02-01-Redecker2021}. A \textit{GDPR} é uma lei em resposta ao atual cenário da sociedade digital, com transformações sociais constantes, e tecnológicas em um mundo de \textit{big data}, sendo que jamais em tempo algum da história, volume tão significativo de informações foi processado ininterruptamente e exponencial pelas organizações em geral e também pelas próprias pessoas naturais que consomem essas informações \cite{02-01-Vainzof2020}.
+%02-01-02-Revisto[OK]
+A LGPD tem parte do seu texto legal fortemente baseado na lei europeia denominada \textit{General Data Protection Regulation} (GDPR), que entrou em vigor na União Europeia em 2018 \cite{02-01-Redecker2021}. A GDPR é uma lei em resposta ao atual cenário da sociedade digital, com transformações sociais e tecnológicas. Sendo que jamais em tempo algum da história, volumes tão significativos de informações foram processados ininterruptamente e exponencial pelas organizações, e também pelas próprias pessoas naturais que consomem essas informações \cite{02-01-Vainzof2020}.
 
-Diariamente geramos inúmeras quantidades de dados, seja ao utilizarmos um \textit{website}, um aplicativo, fazendo um cadastro em uma loja física ou digital, ao ouvir uma música, etc., podendo tais dados serem coletados voluntaria ou involuntariamente. Os proprietários dos dados podem gerar um número massivo de dados e informações, de forma que as empresas coletam e utilizam o poder dos dados para vários fins em seus negócios. Com essa visão, renomados doutrinadores, especialistas e autores em proteção de dados comparam o poder dos dados como o "novo petróleo", visto o valor agregado dos dados para o crescimento financeiro e estrutural de uma empresa \cite{02-01-Jobim2021}. 
+%02-01-03-Revisto[OK]
+Diariamente geramos inúmeras quantidades de dados armazenadas em \textit{big data}. Os dados que são colhidos sáo quando ao utilizarmos um \textit{website}, um aplicativo, fazendo um cadastro em uma loja física ou digital, ao ouvir uma música, etc., podendo tais dados serem coletados voluntaria ou involuntariamente. Os proprietários dos dados podem gerar um número massivo de dados e informações, de forma que as empresas coletam e utilizam o poder dos dados para vários fins em seus negócios. Com essa visão, renomados doutrinadores, especialistas e autores em proteção de dados comparam o poder dos dados como o "novo petróleo", visto o valor agregado dos dados para o crescimento financeiro e estrutural de uma empresa \cite{02-01-Jobim2021}. 
 
+%02-01-04-Revisto[OK]
 No ano de 2018, a rede social \textit{Facebook} se envolveu em um grande escândalo mundial de uso indevido de dados. Os  dados de usuários do \textit{Facebook}  foram usados irregularmente pela empresa \textit{Cambrigde Analytica}, que utilizou o processamento de dados sem o consentimento do titular para análise e mineração de dados com a finalidade de fazer comunicação estratégica para o processo eleitoral americano em 2016.
-Tal escândalo se evidenciou após o jornal norte-americano \textit{The New York Times} \cite{01-03-Rosenberg2018} e o jornal britânico \textit{The Guardian} \cite{01-04-Graham} publicaram simultamente artigos demonstrando relatórios de vazamento e utilização indevida de cerca de 87 milhões de dados de usuários americanos da referida rede social. 
+Tal escândalo se evidenciou após o jornal norte-americano \textit{The New York Times} \cite{01-03-Rosenberg2018} e o jornal britânico \textit{The Guardian} \cite{01-04-Graham} publicarem simultaneamente artigos demonstrando relatórios de vazamento e utilização indevida de cerca de 87 milhões de dados de usuários americanos da referida rede social. 
 
+%02-01-05-Revisto[OK]
 No Brasil, antes da entrada em vigor da LGPD e mesmo após sua vigência, inúmeras empresas e entidades governamentais ainda são vítimas de vazamento de dados. Visto que os \textit{hackers} ou \textit{crackers} se utilizam de seus conhecimentos tecnológicos avançados, sempre visando buscar brechas em sistemas para invadir, ou simplesmente aproveitam de erros do fator humanos que se aproveitará para utilizar para capturar ou viola a empresa, causando prejuízos \cite{02-01-Almeida2020}.
 
-Com a evolução da tecnologia, as leis precisam andar passo a passo com a sociedade e a tecnologia, não para criar burocracias legais, mas para auxiliar ao convívio pacifico social, bem nos assegura \citeonline{02-01-Rosenvald2021}, para que em caso de eventuais futuros problemas que emergirem, tenham uma base legal que respeite as garantias e direitos individuais e coletivos. 
+%02-01-06-Revisto[OK]
+Com a evolução da digital, as leis precisam andar passo a passo com a sociedade e a tecnologia. Não com a finalidade de criar burocracias legais, mas para auxiliar ao convívio pacifico social, bem nos assegura \citeonline{02-01-Rosenvald2021}, para que em caso de eventuais futuros problemas que emergirem, tenham uma base legal que respeite as garantias e direitos individuais e coletivos. 
 
-A tecnologia sempre está avançando, e com isso novas tendências surgem e se fortalecem. Temos como exemplos: \textit{blockchain}, \textit{big data}, \textit{internet} das coisas (\textit{IOT}), inteligência artificial, criptomoedas, metaverso, \textit{NFTs}. Essas novas tecnologias já fazem parte do cotidiano de várias pessoas no Brasil e ao redor do mundo, e esses dados gerados que serão armazenados, extraídos, minerados e tratados \cite{02-01-Vainzof2020}.
+A tecnologia sempre está avançando, e com isso novas tendências surgem e se fortalecem. Temos como exemplos algumas novas tecnologias: \textit{blockchain}, \textit{big data}, \textit{internet} das coisas (IOT), inteligência artificial, criptomoedas, metaverso, \textit{NFTs}. Essas novas tecnologias já fazem parte do cotidiano de várias pessoas no Brasil e ao redor do mundo, e esses dados gerados que serão armazenados, extraídos, minerados e tratados \cite{02-01-Vainzof2020}.
+\\
+\\
+\\
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %                      2.2                             %
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conceitos fundamentais relacionados a LGPD }
+%02-02-00-Revisto[OK]
 A palavra privacidade tem origem no latim, derivando do verbo \textit{privare} e do adjetivo \textit{privatus}. A proteção da privacidade no Brasil, tem sua fundamentação legal na Constituição Federal de 1988, presente no artigo 5.º, inciso X, onde é resguardado o direito às garantias e direitos fundamentais, da intimidade da vida privada e também as garantias a inviabilidade de interceptações telefônicas, ou telegráficas, ou de dados \cite{Doneda2020}.
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %                      2.2.1                            %
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%02-02-01-Revisto[OK]
 \subsection{\textit{Compliance}}
 
 A palavra \textit{compliance} tem origem do verbo inglês “\textit{to comply}”, cujo a tradução do inglês para o português significa os seguintes verbos: cumprir, concordar, adequar, satisfazer, ou seja, estar de acordo com uma regra ou norma \cite{Lamboy2018}. Então, quando é dito que uma empresa está em \textit{compliance}, pode se dizer que ela está seguindo as regras, leis, normas, regulamentos de forma limpa e correta.
 
-Nas empresas no ambiente interno, um programa de \textit{compliance} demonstrará análises que a empresa está agindo de forma ética com seus clientes, consumidores, parceiros, e a sociedade. O \textit{compliance} de uma organização feita efetivamente para respeitar as regras internas e externas, ajudará bastante no programa de prevenção de futuros incidentes,  conforme salienta \citeonline{Serafino2020}, que somado junto com a LGPD implementada servirá para evitar inúmeros problemas internos, como o tratamento irregular de dados, vazamentos, falta de segurança, compartilhamento de dados.
+%02-02-01-02-Revisto[OK]
+Nas empresas no ambiente interno, um programa de \textit{compliance} demonstrará análises que a empresa está agindo de forma ética com seus clientes, consumidores, parceiros, e a sociedade. O \textit{compliance} de uma organização, ao ser feita efetivamente respeitando as regras internas e externas, ajudará bastante no programa de prevenção de futuros incidentes. Segundo salienta \citeonline{Serafino2020}, que somado com a LGPD implementada servirá para evitar inúmeros problemas internos, como o tratamento irregular de dados, vazamentos, falta de segurança, compartilhamento de dados.
 
+%02-02-01-03-Revisto[OK]
 Para uma empresa estar em \textit{compliance} com a LGPD, segundo \citeonline{Pinheiro2018} deve se analisar alguns fatores elementais. Devem ser analisados a cultura da organização e a gestão, as boas práticas de segurança adotadas, e o treinamento de colaboradores. Também, a empresa necessita ter profissionais capacitados para realizar atividades que envolvam o tratamento de dados pessoais, de modo a adotar ferramentas de segurança de dados, procedimentos de documentação e fluxos que permitam controle e auditoria de dados. 
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -530,26 +546,33 @@ Para uma empresa estar em \textit{compliance} com a LGPD, segundo \citeonline{Pi
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Dados Pessoais}
 
-O legislador em seu entendimento presente no artigo 5º, inciso I da LGPD, conceitua que dados pessoais são pertencentes a pessoa natural, identificada ou identificável \cite{01-01-LeiGeral}.  Sendo considerado dados pessoais informações que servem para identificar uma pessoa, como o caso elenca \citeonline{Hoeren2020}, sendo o nome, sobrenome, CPF, RG, título de eleitor, endereço, estado civil, gênero, profissão, origem, etnia, questões relacionadas à saúde, orientação sexual, genética e outras informações que podem ser identificáveis.
+%02-02-02-01-Revisto[OK]
 
+O legislador em seu entendimento presente no artigo 5º, inciso I da LGPD, conceitua que dados pessoais são pertencentes a pessoa natural, identificada ou identificável \cite{01-01-LeiGeral}.  Sendo considerado dados pessoais informações que servem para identificar uma pessoa, \cite{Hoeren2020}, sendo o nome, sobrenome, CPF, RG, título de eleitor, endereço, estado civil, gênero, profissão, origem, etnia, questões relacionadas à saúde, orientação sexual, genética e outras informações que podem ser identificáveis.
+
+%02-02-02-02-Revisto[OK]
 Os dados pessoais como demonstrado em \cite{02-01-Vainzof2020} podem se dividir e se classificar em:
 \begin{itemize}
 \item Dados pessoais diretos: a identificação da pessoa natural pode ser realizada sem a necessidade de outras informações como CPF, RG, nome, caso não tenham homônimos;
-\item Dados pessoais indiretos: necessita de informações complementares para identificar uma pessoa como interesses, hábitos de consumo profissão, sexo idade e geolocalização;
+\item Dados pessoais indiretos: necessita de informações complementares para identificar uma pessoa como interesses, hábitos de consumo, profissão, sexo, idade e geolocalização;
 \end{itemize}
 
-Atualmente surgem novas técnicas para caracterizar uma pessoa, como elenca \citeonline{Basan2021} utilizando-se de metadados baseando se em informações dos usuários, como a de seus gostos, desejos e preferências elaborando e criando o perfil de comportamento das pessoas a partir de dados pessoais, chamando essa técnica de \textit{profiling}.
+%02-02-02-03-Revisto[OK]
+Atualmente surgem novas técnicas para caracterizar uma pessoa, como elenca, \citeonline{Basan2021} utilizando-se de metadados baseando se em informações dos usuários, como a de seus gostos, desejos e preferências, elaborando e criando o perfil de comportamento das pessoas a partir de dados pessoais, chamando essa técnica de \textit{"profiling"}.
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %                      2.2.3                            %
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Dados Anonimizados e pseudonimizados}
 
-Os dados anonimizados tem previsão legal no artigo 12 da LGPD, não sendo considerados dados pessoais, exceto quando o dado pessoal que passou pelo processo de anonimização for revertido, temos como exemplo a descriptografia,  (BRASIL, 2018) . A anonimização dos dados pessoais é uma importante técnica para implementação da segurança da informação e \textit{compliance} com a LGPD \cite{02-01-Maroso2020}. Visto que o dado passará por um tratamento de anonimização fazendo com que o dado perca a possibilidade de associação, direta ou indireta, a um indivíduo, dificultando a identificação de determinado indivíduo \cite{Pinheiro2018}.
+%02-02-03-01-Revisto[OK]
+Os dados anonimizados tem previsão legal no artigo 12 da LGPD, não sendo considerados dados pessoais, exceto quando o dado pessoal que passou pelo processo de anonimização for revertido, ou seja, passar pelo processo de descriptografia  (BRASIL, 2018). A anonimização dos dados pessoais é uma importante técnica para implementação da segurança da informação e \textit{compliance} com a LGPD \cite{02-01-Maroso2020}. Visto que o dado passará por um tratamento de anonimização fazendo com que o dado perca a possibilidade de associação, direta ou indireta, a um indivíduo, dificultando a identificação de determinado indivíduo \cite{Pinheiro2018}.
 
-No mesmo sentido \citeonline{Doneda2020} descreve anonimização de dados pessoais como a retirada do vínculo da informação com a pessoa a qual se refere. Se tornando um recurso que algumas leis de proteção utilizam para diminuir os riscos presentes no seu tratamento. A mitigação de riscos é também obtida com procedimentos de pseudo minimização que, embora não torne o dado anônimo, pode dificultar a identificação do titular, somente sendo possível associar esses dados pessoais pseudonimizados, com informações adicionais mantidas pelo controlador, em um ambiente controlado e seguro \cite{02-01-Vainzof2020}.
+%02-02-03-02-Revisto[OK]
+No mesmo sentido, \citeonline{Doneda2020} descreve anonimização de dados pessoais como a retirada do vínculo da informação com a pessoa a qual se refere. Tornando-se um recurso para diminuir os riscos presentes no seu tratamento de dados. A mitigação de riscos é também obtida com procedimentos de pseudo minimização que, embora não torne o dado anônimo, pode dificultar a identificação do titular, somente sendo possível associar esses dados pessoais pseudonimizados, com informações adicionais que mantidas em um ambiente controlado e seguro \cite{02-01-Vainzof2020}.
 
-O uso de técnicas como a de criptografia, de função \textit{hash} ou outras tecnologias que garantam a segurança e integridade dos dados. E em \citeonline{Masseno2020} demonstram a preocupação com a segurança dos dados, elencando a importância de usar mecanismos de cifragem para que os dados não possam reversíveis por pessoas não autorizadas.
+%02-02-03-03-Revisto[OK]
+A utilização de técnicas como a de criptografia, o uso da função \textit{hash} ou outros métodos de segurança da informação, garantem a segurança e integridade dos dados. E em \citeonline{Masseno2020} demonstram a importância com a segurança dos dados, elencando a necessidade de usar mecanismos de cifragem para que os dados não possam reversíveis por pessoas não autorizadas.
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %                      2.2.4                            %
@@ -933,7 +956,7 @@ O conceito de Privacy by Design, conforme demonstra ([(OLIVEIRA; GROSSI, 2020)] 
 
 A metodologia Privacy by Design, para Ann Cavoukin (2011), trata-se de um \textit{framework}, ([(OLIVEIRA; GROSSI, 2020)] p317),  para que de modo proativo, a privacidade seja pensada e construída não somente em tecnologias da informação, mas também em práticas de negócios, transformando e fazendo mudanças organizacionais, transformando o modo de operação padrão de entidades que lidam com produtos ou serviços, com o fim de assegurar que a privacidade seja realizada durante todo o ciclo do tratamento ([(FRAZÃO et al., 2019)] p53).
 
-A popularidade desse \textit{framework} tornou-se requisito para conformidade da Regulamento Geral de Proteção de Dados (\textit{GDPR}), expresso no artigo 25 do referido  regulamento, que a proteção de dados deve ser desde a concepção e como padrão ([(OLIVEIRA; GROSSI, 2020)] p318), de modo que aqui no Brasil, a LGPD aplica esse conceito no artigo 46, § 2°, com os seguintes dizeres a respeito das medidas de segurança e proteção de dados: “deverão ser observadas desde a fase de concepção do produto ou do serviço até a sua execução”. (BRASIL, 2018).
+A popularidade desse \textit{framework} tornou-se requisito para conformidade da Regulamento Geral de Proteção de Dados (GDPR), expresso no artigo 25 do referido  regulamento, que a proteção de dados deve ser desde a concepção e como padrão ([(OLIVEIRA; GROSSI, 2020)] p318), de modo que aqui no Brasil, a LGPD aplica esse conceito no artigo 46, § 2°, com os seguintes dizeres a respeito das medidas de segurança e proteção de dados: “deverão ser observadas desde a fase de concepção do produto ou do serviço até a sua execução”. (BRASIL, 2018).
 
 \subsection{ Principais guias disponibilizadas pela ANPD  }
 
@@ -950,7 +973,7 @@ Nos guias já realizados pela ANPD ou algum órgão Público da Administração 
 
 \subsection{ RIPD – Relatório de Impacto à Proteção dos Dados Pessoais  }
 
-O Relatório de Impacto à Proteção dos Dados Pessoais (RIPD), também conhecido como RPIA (\textit{Data Protection Impact Assessment}) na \textit{GDPR}, teve previsão legal no artigo 5º. XVII, é uma das documentações mais importantes que o Encarregado e o controlador de dados pessoais devem elaborar e enviar para a ANPD conforme é dito no artigo 38 da LGPD. (BRASIL, 2018).
+O Relatório de Impacto à Proteção dos Dados Pessoais (RIPD), também conhecido como RPIA (\textit{Data Protection Impact Assessment}) na GDPR, teve previsão legal no artigo 5º. XVII, é uma das documentações mais importantes que o Encarregado e o controlador de dados pessoais devem elaborar e enviar para a ANPD conforme é dito no artigo 38 da LGPD. (BRASIL, 2018).
 
 Para elaborar o RIPD, deve ser instituído e elaborado antes de se iniciar o tratamento dos dados pessoais, conforme elenca o Guia de Boas Práticas, ideal na fase inicial. Conforme a figura elaborada pelo guia, demonstra o ciclo de fases para elaboração do RIPD conforme a figura \ref{fig: CicloRIPD }:
 \begin{figure}[ht]
@@ -1105,7 +1128,7 @@ A metodologia de avaliação do autor para medir a eficiência do \textit{framew
 
 Nesse trabalho, [(SILVA, 2021) ] construiu um \textit{framework} para a implementação da LGPD no setor químico. No processo metodológico de construção do \textit{framework}, o autor começou a fazer a análise bibliográfica de artigos e documentos em bases científicas, e como avaliação e resultados foi enviado um questionário para 973 fábricas de produtos químicos no Brasil.
 
-O \textit{framework} para implementação da LGPD criado pelo autor se baseou inicialmente as leis de privacidade mais populares no Brasil, \textit{GDPR}, \textit{CCPA} e LGPD, e outras \textit{ISO} e \textit{frameworks} existentes, tendo como resultado um \textit{framework} em cinco fases, conforme a figura abaixo:
+O \textit{framework} para implementação da LGPD criado pelo autor se baseou inicialmente as leis de privacidade mais populares no Brasil, GDPR, CCPA e LGPD, e outras \textit{ISO} e \textit{frameworks} existentes, tendo como resultado um \textit{framework} em cinco fases, conforme a figura abaixo:
 
 \begin{figure}[ht]
     \centering
