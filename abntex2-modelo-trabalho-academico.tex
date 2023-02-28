@@ -947,17 +947,19 @@ No Brasil, existe a necessidade do crescimento de políticas de segurança da in
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Mecanismos de implementação da conformidade da LGPD}
 
-Neste trabalho será realizada a utilização de um \textit{framework} conceitual, aplicando as técnicas desenvolvidas em empresas, validando a eficiência, e permitindo a reutilização em outros tipos de empresa. Também serão replicados e reutilizados outros \textit{frameworks} como a família série \textit{ISO}, o PCDA, e demais mecanismos para implementação da LGPD. 
+Nesta seção serão expostas o conceito de \textit{framework}, juntamente com os tópicos relacionados a \textit{frameworks} ligados a governança e proteção de dados, como: série ISO 27000, PCDA, \textit{Privacy by Design} e o RIPD (Relatório de Impacto à Proteção dos Dados Pessoais). 
+
+% Neste trabalho será realizada a utilização de um \textit{framework} conceitual, aplicando as técnicas desenvolvidas em empresas, validando a eficiência, e permitindo a reutilização em outros tipos de empresa. Também serão replicados e reutilizados outros \textit{frameworks} como a família série \textit{ISO}, o PCDA, e demais mecanismos para implementação da LGPD. % % 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %                      2.5.1                           %
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Conceito de \textit{Framework}}
 
-Conforme descreve \cite{Kechi2012} \textit{framework} é uma arquitetura de processos que podem ser reutilizados e modificados, sendo uma conjuntura de bibliotecas e componentes, com a função de serem utilizados para desenvolvimento rápido e seguro das aplicações. Um \textit{framework} auxilia na agilidade da criação de padrão de projetos, componentes de \textit{softwares}.
+De acordo com a definição apresentada por Kechi (2012), um \textit{framework} é uma arquitetura de processos que pode ser reutilizada e modificada, constituindo-se como um conjunto de bibliotecas e componentes projetados para possibilitar o desenvolvimento ágil e seguro de aplicações. Ao empregar um \textit{framework}, é possível acelerar o processo de criação de padrões de projetos e componentes de \textit{softwares}, tornando a construção desses sistemas mais eficiente e padronizada.
 
 Os benefícios de se utilizar ou criar \textit{frameworks} para implementação da proteção de dados está no reuso, na agilidade e na possibilidade de replicar nos projetos de gestão. Em \citeonline{Sommerville2011}, diz a respeito do conceito de \textit{frameworks} “dão suporte ao reuso de projeto, bem como ao reuso de classes específicas de sistema, pois fornecem uma arquitetura de esqueleto para a aplicação. A arquitetura é definida por classes de objetos e suas interações.” 
 
-Conforme \citeonline{Silva2021} os principais tipos de \textit{frameworks} se dividem em: \textit{framework} conceitual que auxilia a identificar itens relevantes e interessantes no domínio da aplicação que apresentam um formato visual de futuros sistemas. Já o \textit{framework} de projetos auxilia na transformação do modelo do domínio da aplicação em um projeto técnico, apresentando um conjunto de padrões ou por estilos de arquitetura. Por fim o \textit{framework} de \textit{software} tem sua utilização na construção e implementação de sistemas computacionais de tamanhos variados, podendo ser de pequena ou média escala.
+Conforme \citeonline{Silva2021w} os principais tipos de \textit{frameworks} se dividem em: \textit{framework} conceitual que auxilia a identificar itens relevantes e interessantes no domínio da aplicação que apresentam um formato visual de futuros sistemas. Já o \textit{framework} de projetos auxilia na transformação do modelo do domínio da aplicação em um projeto técnico, apresentando um conjunto de padrões ou por estilos de arquitetura. Por fim o \textit{framework} de \textit{software} tem sua utilização na construção e implementação de sistemas computacionais de tamanhos variados, podendo ser de pequena ou média escala.
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %                      2.5.2                           %
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -966,7 +968,7 @@ Conforme \citeonline{Silva2021} os principais tipos de \textit{frameworks} se di
 
 A série de \textit{ISO} 27000 foi criada e desenvolvida pela Organização Internacional de Padrões, fornecendo um \textit{framework} de segurança da informação, podendo ser aplicada em qualquer organização, independente do setor ou tamanho \cite{Pohlmann2019}.
 
-Em breve análise, a \textit{ISO} 27001:2013 define os requisitos a serem atendidos pelo Sistema de Gerenciamento da Segurança da Informação, podendo a organização obter certificação por meio da auditoria e a \textit{ISO} 27002:2013, é tida como guia e manual de boas práticas para controle de segurança da informação, auxiliando na implementação de Sistema de Gestão de Privacidade da Informação (SGPI), \cite{Jimene2020}. Para elucidar de forma fácil, a série de \textit{ISO} 27000 abaixo uma figura \ref{fig: Iso } elencando todas as normas \textit{ISO}.
+A \textit{ISO} 27001:2013 define os requisitos que devem ser atendidos pelo Sistema de Gerenciamento da Segurança da Informação, permitindo que a organização seja certificada através de auditorias. Por outro lado, a \textit{ISO} 27002:2013 é um guia que apresenta boas práticas para controle de segurança da informação, auxiliando na implementação de um Sistema de Gestão de Privacidade da Informação (SGPI), conforme explicado por \cite{Jimene2020}. Para facilitar o entendimento, a série \textit{ISO} 27000 é composta por diversas normas, que podem ser visualizadas na figura \ref{fig: Iso}.
 
 \begin{figure}[ht]
     \centering
@@ -986,7 +988,7 @@ A norma ABNT NBR \textit{ISO/IEC} 27701:2019 é referente a implementação, man
 
 A \textit{ISO} 27701:2019 estabelece critérios e fornece ferramentas para as empresas implementarem a SGPI.  Sendo uma extensão para entrar em conformidade com a LGPD, como os itens que remetem ao artigo 50 da LGPD, que falam sobre boas práticas e governança, visto que, a LGPD não dispõe de maiores detalhes acerca dos requisitos técnicos de segurança a serem adotados na relação controlar e o operador \cite{lgpd1alves}. 
 
- Pode se citar como alguns dos principais itens dessa \textit{ISO} 27701:2019, conforme também \cite{Vainzof2020}, demonstram:
+ Pode se citar como alguns dos principais itens dessa \textit{ISO} 27701:2019, conforme também \cite{Vainzof2020} demonstram:
 \begin{itemize}
 \item Item 7.2.1: A organização deve identificar e documentar os propósitos específicos pelos quais os dados pessoais são tratados;
 \item Item 7.2.2: A organização deve identificar as bases legais pertinentes ao tratamento de dados pessoais;
@@ -1000,7 +1002,7 @@ A \textit{ISO} 27701:2019 estabelece critérios e fornece ferramentas para as em
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{ \textit{PDCA} }
 
-Conforme consolida \citeonline{ALima2020}, a gestão de risco cibernético se baseia em alguns pilares, como: identificar, proteger, detectar e responder e recuperar. A \textit{ISO} 27001 é constituída pelo processo PDCA, que se resume em \textit{Plan} (planejar os controles); \textit{Do} (implementar esses controles); \textit{Check} (checar os controles); \textit{Act} (agir, atualizando os controles, caso na etapa de verificação falhem).
+De acordo com \citeonline{ALima2020}, a gestão de risco cibernético se fundamenta em alguns pilares: identificar, proteger, detectar, responder e recuperar. Além disso, a \textit{ISO} 27001 é composta pelo processo PDCA, que consiste em: \textit{Plan} (planejar os controles), \textit{Do} (implementar esses controles), \textit{Check} (verificar os controles) e \textit{Act} (agir, atualizando os controles, caso a etapa de verificação falhe).
 
 A implementação da LGPD tem várias etapas e processos, e o PCDA conforme demonstra o \textit{website} \cite{minutoseguraca}, pode ser utilizado para simplificar a tarefa de conformidade. Em etapas em relação a LGPD, pode se dividir em 4 fases, que serão contínuas e forma de ciclo, conforme a figura \ref{fig: PCDA }:
 
