@@ -1,1 +1,2 @@
 Precisa inverter as imagens horizontalmente
+Remover as imagens
