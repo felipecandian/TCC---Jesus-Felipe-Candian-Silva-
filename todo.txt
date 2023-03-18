@@ -1,2 +1,3 @@
 Precisa inverter as imagens horizontalmente
 Remover as imagens
+Fazer tudo e reunir quinta com slides
