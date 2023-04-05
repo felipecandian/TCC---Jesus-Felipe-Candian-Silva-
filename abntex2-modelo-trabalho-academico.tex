@@ -977,9 +977,13 @@ Conforme \citeonline{Silva2021w} os principais tipos de \textit{frameworks} se d
 
 \subsection{\textit{ISO 27000}: \textit{Framework} de políticas de segurança da informação}
 
-A série de \textit{ISO} 27000 foi criada e desenvolvida pela Organização Internacional de Padrões, fornecendo um \textit{framework} de segurança da informação, podendo ser aplicada em qualquer organização, independente do setor ou tamanho \cite{Pohlmann2019}.
+A série de \textit{ISO} 27000 foi criada e desenvolvida pela Organização Internacional de Padrões, fornecendo um \textit{framework} de segurança da informação, podendo ser aplicada em qualquer organização, independente do setor ou tamanho \cite{Pohlmann2019}. Estabelece um conjunto de boas práticas e controles de segurança da informação que podem ser utilizados pelas organizações para proteger as informações que elas gerenciam, incluindo os dados pessoais.
 
-A \textit{ISO} 27001:2013 define os requisitos que devem ser atendidos pelo Sistema de Gerenciamento da Segurança da Informação, permitindo que a organização seja certificada através de auditorias. Por outro lado, a \textit{ISO} 27002:2013 é um guia que apresenta boas práticas para controle de segurança da informação, auxiliando na implementação de um Sistema de Gestão de Privacidade da Informação (SGPI), conforme explicado por \cite{Jimene2020}. Para facilitar o entendimento, a série \textit{ISO} 27000 é composta por diversas normas, que podem ser visualizadas na figura \ref{fig: Iso}.
+A \textit{ISO} 27001:2013 define os requisitos que devem ser atendidos pelo Sistema de Gerenciamento da Segurança da Informação, permitindo que a organização seja certificada através de auditorias. Por outro lado, a \textit{ISO} 27002:2013 é um guia que apresenta boas práticas para controle de segurança da informação, auxiliando na implementação de um Sistema de Gestão de Privacidade da Informação (SGPI), conforme explicado por \cite{Jimene2020}. 
+
+
+\begin{comment}
+Para facilitar o entendimento, a série \textit{ISO} 27000 é composta por diversas normas, que podem ser visualizadas na figura \ref{fig: Iso}.
 
 \begin{figure}[ht]
     \centering
@@ -989,6 +993,8 @@ A \textit{ISO} 27001:2013 define os requisitos que devem ser atendidos pelo Sist
     \label{fig: Iso }
     \centering \small Fonte: ISACA BH Chapter Elaborado por Fernando Fonseca..
 \end{figure}
+
+\end{comment}
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %                      2.5.3                           %
@@ -1017,16 +1023,18 @@ De acordo com \citeonline{ALima2020}, a gestão de risco cibernético se fundame
 
 Conforme demonstrado no site \citeonline{minutoseguraca}, a implementação da LGPD envolve diversas etapas e processos, sendo que o PDCA pode ser utilizado para simplificar a tarefa de conformidade. Em relação à LGPD, as etapas podem ser divididas em quatro fases contínuas, formando um ciclo, conforme ilustrado na figura \ref{fig: PCDA}.
 
+
 \begin{figure}[ht]
     \centering
     \caption{Ciclo PCDA da LGPD.}
     \includegraphics[width=4.2in]{Images/05PCDA.png}
     
-    \label{fig: PCDA }
+    \label{fig: PCDA}
     \centering \small Fonte: Site Oobras.com.br \cite{oobras}.
 \end{figure}
 
 \begin{itemize}
+
 \item Fase I  \textit{Plan} — Planejar: essa é uma das fases importantes para o processo de conformidade, visto que deve se identificar os problemas, estabelecer os objetivos e metas, e planejar próximos passos. Conforme o site \citeonline{minutoseguraca}, deve-se analisar de início os 7 princípios da LGPD relacionados ao processo de dados, e também definir os objetivos no tratamento de dados.
 \item Fase II \textit{Do} — Executar: será colocar em prática os planejamentos da etapa anterior. Executando utilizando tecnologias para auxiliar a implementação como \textit{frameworks}.
 \item Fase III \textit{Check} — Checar: Nesta etapa será de verificar se os trabalhos realizados nas etapas anteriores, verificando se estão sendo executados conforme o planejado. Nessa fase, o autor demonstra a importância de validar através do relatório de impactos a proteção de dados.
@@ -1044,7 +1052,7 @@ Para Ann Cavoukian é necessário encorajar as empresas, e todos os envolvidos p
 
 De acordo com \citeonline{oliveira2020}, a metodologia \textit{Privacy by Design} criada por Ann Cavoukin é um \textit{framework} que visa incorporar a privacidade desde o início do projeto até a sua conclusão, abrangendo não apenas tecnologias da informação, mas também práticas de negócios e mudanças organizacionais. A ideia é modificar o modo de operação padrão das empresas que lidam com produtos ou serviços, de forma a garantir que a privacidade seja levada em conta durante todo o ciclo de tratamento de dados. Segundo \citeonline{Ana2019}, o objetivo é que a privacidade não seja apenas um requisito regulatório, mas um valor central que orienta todas as atividades da empresa.
 
-O \textit{framework} \textit{Privacy by Design} se tornou bastante popular e se tornou um requisito de conformidade do Regulamento Geral de Proteção de Dados europeu, como expresso no artigo 25 desse regulamento, que exige a proteção de dados desde a concepção e como padrão \cite{oliveira2020}. No Brasil, a LGPD incorporou esse conceito no artigo 46, § 2°, que afirma que as medidas de segurança e proteção de dados "devem ser observadas desde a fase de concepção do produto ou do serviço até a sua execução" \cite{01-01-LeiGeral}.
+O \textit{framework} \textit{Privacy by Design} se tornou bastante popular e se tornou um requisito de conformidade do Regulamento Geral de Proteção de Dados europeu, como expresso no artigo 25 desse regulamento, que exige a proteção de dados desde a concepção e como padrão \cite{oliveira2020}. Já a lei brasileira, incorporou esse conceito no artigo 46, § 2°, LGPD, afirmando que as medidas de segurança e proteção de dados "devem ser observadas desde a fase de concepção do produto ou do serviço até a sua execução" \cite{01-01-LeiGeral}.
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %                      2.5.6                           % OK
@@ -1062,7 +1070,11 @@ A elaboração do relatório de proteção de dados pode ser um processo complex
 
 Além de ser uma exigência legal, o relatório de proteção de dados pode ser uma ferramenta valiosa para aumentar a transparência e a confiança dos clientes na empresa. Ao fornecer informações claras e precisas sobre como os dados pessoais são coletados, usados e protegidos, a empresa demonstra um compromisso com a privacidade e a segurança dos dados de seus clientes.
 
-Para elaborar o RIPD, deve ser instituído e elaborado antes de se iniciar o tratamento dos dados pessoais, conforme elenca o Guia de Boas Práticas (2020), ideal na fase inicial. Conforme a figura elaborada pelo guia, demonstra o ciclo de fases para elaboração do RIPD conforme a figura \ref{fig: CicloRIPD }:
+Para elaborar o RIPD, poderá ser instituído e elaborado antes de se iniciar o tratamento dos dados pessoais, visto que conforme elenca o Guia de Boas Práticas (2020). 
+
+O RIPD deve conter informações sobre o tipo de dados pessoais que estão sendo processados, a finalidade do tratamento, as medidas de segurança adotadas pela organização, as possíveis consequências negativas para os titulares dos dados em caso de violação de segurança e as medidas que serão tomadas pela organização em caso de violação de segurança. O RIPD deve ser atualizado sempre que houver mudanças no tratamento de dados pessoais que possam afetar o seu risco.
+
+Conforme a figura elaborada pelo guia, demonstra o ciclo de fases para elaboração do RIPD conforme a figura \ref{fig: CicloRIPD }:
 \begin{figure}[ht]
     \centering
     \caption{Ciclo de fases para elaboração do RIPD.}
