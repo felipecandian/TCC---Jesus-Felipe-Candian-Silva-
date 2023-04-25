@@ -11,3 +11,5 @@ Terminar resultados e mandar para o /welligtno
 Acabar com tudo
 
 Organizar as tarefas
+
+Envio do PDF
