@@ -18,3 +18,5 @@ Citação das fontes
 Verificar as modificações
 
 Fazer o capitulo do livro
+
+Ajustar as mensagens e slites
